@@ -14,6 +14,11 @@ const games = {
     "img/gta-iv-gameplay.jpg",
     "img/gta-iv-gameplay-2.jpg",
   ],
+  game4: [
+    "img/mvc-otm.jpg",
+    "img/gta-iv-gameplay.jpg",
+    "img/gta-iv-gameplay-2.jpg",
+  ],
 };
 
 const modal = document.getElementById("modal");
