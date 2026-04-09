@@ -41,8 +41,8 @@ img {
   display: flex;
   min-width: 250px;
   flex-direction: column;
-  border: 2px solid #fff;
-  padding: 5px;
+  border: 1px solid #fff;
+  padding: 15px;
 }
 
 a {
@@ -120,4 +120,36 @@ a {
 }
 .next {
   right: 20px;
+}
+
+@media (max-width: 780px) {
+  .header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header span {
+    font-size: 0.85rem;
+  }
+
+  .jogos {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .header h1 {
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header span {
+    font-size: 0.7rem;
+  }
+
+  .jogos {
+    align-items: center;
+    justify-content: center;
+  }
 }
