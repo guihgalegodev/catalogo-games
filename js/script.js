@@ -80,6 +80,5 @@ fechar.addEventListener("click", () => {
   modalImg.style.transform = "scale(1)";
 });
 
-//https://shopee.com.br/Jogos-Seminovos-de-PS3-Originais-i.490386670.58206952976?extraParams=%7B%22display_model_id%22%3A159552964230%2C%22model_selection_logic%22%3A3%7D
-
-//https://shopee.com.br/Jogos-Seminovos-de-PS3-Originais-i.490386670.58206952976?extraParams=%7B%22display_model_id%22%3A159552964230%2C%22model_selection_logic%22%3A3%7D
+const drag = "Drag";
+console.log(drag);
