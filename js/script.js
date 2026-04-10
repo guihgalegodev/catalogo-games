@@ -29,7 +29,13 @@ const btnPrev = document.querySelector(".prev");
 
 let imagens = [];
 let indexAtual = 0;
+
 let escala = 1;
+let posX = 0;
+let posY = 0;
+let isDragging = false;
+let startX = 0;
+let startY = 0;
 
 function abrirModal(listaImagens) {
   imagens = listaImagens;
@@ -37,48 +43,84 @@ function abrirModal(listaImagens) {
 
   modal.style.display = "flex";
   modalImg.src = imagens[indexAtual];
-
-  const isDesktop = window.innerWidth > 768;
-
-  modalImg.addEventListener("wheel", (e) => {
-    if (!isDesktop) return;
-
-    e.preventDefault();
-
-    const zoomSpeed = 0.1;
-
-    if (e.deltaY < 0) {
-      escala += zoomSpeed;
-    } else {
-      escala -= zoomSpeed;
-    }
-
-    if (escala < 1) escala = 1;
-    if (escala > 3) escala = 3;
-
-    modalImg.style.transform = `scale(${escala})`;
-  });
 }
+
+const isDesktop = window.innerWidth > 768;
+
+modalImg.addEventListener("wheel", (e) => {
+  if (!isDesktop) return;
+
+  e.preventDefault();
+
+  const zoomSpeed = 0.1;
+
+  if (e.deltaY < 0) {
+    escala += zoomSpeed;
+  } else {
+    escala -= zoomSpeed;
+  }
+
+  if (escala < 1) escala = 1;
+  if (escala > 3) escala = 3;
+
+  // modalImg.style.transform = `scale(${escala})`;
+  aplicarTransform();
+});
+
+modalImg.addEventListener("mousedown", (e) => {
+  if (escala <= 1) return;
+
+  isDragging = true;
+  startX = e.clientX - posX;
+  startY = e.clientY - posY;
+
+  modalImg.style.cursor = "grabbing";
+});
+
+window.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  posX = e.clientX - startX;
+  posY = e.clientY - startY;
+
+  aplicarTransform();
+});
+
+window.addEventListener("mouseup", () => {
+  isDragging = false;
+  modalImg.style.cursor = escala > 1 ? "grab" : "zoom-in";
+});
 
 btnNext.addEventListener("click", () => {
   indexAtual = (indexAtual + 1) % imagens.length;
-  escala = 1;
-  modalImg.style.transform = "scale(1)";
   modalImg.src = imagens[indexAtual];
+  resetarImagem();
+  // escala = 1;
+  // modalImg.style.transform = "scale(1)";
 });
 
 btnPrev.addEventListener("click", () => {
   indexAtual = (indexAtual - 1 + imagens.length) % imagens.length;
-  escala = 1;
-  modalImg.style.transform = "scale(1)";
   modalImg.src = imagens[indexAtual];
+  resetarImagem();
+  // escala = 1;
+  // modalImg.style.transform = "scale(1)";
 });
 
 fechar.addEventListener("click", () => {
   modal.style.display = "none";
-  escala = 1;
-  modalImg.style.transform = "scale(1)";
+  resetarImagem();
+  // escala = 1;
+  // modalImg.style.transform = "scale(1)";
 });
 
-const drag = "Drag";
-console.log(drag);
+function resetarImagem() {
+  escala = 1;
+  posX = 0;
+  posY = 0;
+  aplicarTransform();
+}
+
+function aplicarTransform() {
+  modalImg.style.transform = `translate(${posX}px, ${posY}px) scale(${escala})`;
+}
