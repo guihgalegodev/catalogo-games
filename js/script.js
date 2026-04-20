@@ -1,23 +1,23 @@
 const games = {
   game1: [
-    "img/gta-4-otm.jpg",
-    "img/gta-iv-gameplay.jpg",
-    "img/gta-iv-gameplay-2.jpg",
+    "assets/img/gta-4-otm.jpg",
+    "assets/img/gta-iv-gameplay.jpg",
+    "assets/img/gta-iv-gameplay-2.jpg",
   ],
   game2: [
-    "img/gta-5-otm.jpg",
-    "img/gta-iv-gameplay.jpg",
-    "img/gta-iv-gameplay-2.jpg",
+    "assets/img/gta-5-otm.jpg",
+    "assets/img/gta-iv-gameplay.jpg",
+    "assets/img/gta-iv-gameplay-2.jpg",
   ],
   game3: [
-    "img/naruto-2-otm.jpg",
-    "img/gta-iv-gameplay.jpg",
-    "img/gta-iv-gameplay-2.jpg",
+    "assets/img/naruto-2-otm.jpg",
+    "assets/img/gta-iv-gameplay.jpg",
+    "assets/img/gta-iv-gameplay-2.jpg",
   ],
   game4: [
-    "img/mvc-otm.jpg",
-    "img/gta-iv-gameplay.jpg",
-    "img/gta-iv-gameplay-2.jpg",
+    "assets/img/mvc-otm.jpg",
+    "assets/img/gta-iv-gameplay.jpg",
+    "assets/img/gta-iv-gameplay-2.jpg",
   ],
 };
 
