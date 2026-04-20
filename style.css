@@ -190,4 +190,8 @@ a {
     align-items: center;
     justify-content: center;
   }
+
+  .jogo {
+    width: 80%;
+  }
 }
