@@ -1,0 +1,5 @@
+@import "./geral/geral.css";
+@import "./header/header.css";
+@import "./main-content/main-content.css";
+@import "./modal/modal.css";
+@import "./responsive/responsive.css";

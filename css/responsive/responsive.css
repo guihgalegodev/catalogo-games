@@ -1,0 +1,35 @@
+@media (max-width: 780px) {
+  .header h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header span {
+    font-size: 0.55rem;
+  }
+
+  .jogos {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .header h1 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header span {
+    font-size: 0.45rem;
+  }
+
+  .jogos {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .jogo {
+    width: 80%;
+  }
+}
