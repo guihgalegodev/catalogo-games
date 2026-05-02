@@ -11,7 +11,7 @@ export const games = {
   ],
   game3: [
     "assets/img/naruto-2-otm.jpg",
-    "assets/img/gta-iv-gameplay.jpg",
+    "assets/img/naruto-2-gameplay.jpg",
     "assets/img/gta-iv-gameplay-2.jpg",
   ],
   game4: [
