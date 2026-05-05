@@ -29,7 +29,15 @@
   padding: 5px;
   margin-top: 10px;
   position: absolute;
-  bottom: 128px;
+  bottom: 158px;
+}
+
+.game-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  text-align: left;
+  background-color: #000000;
+  padding: 5px 0px;
 }
 
 .details-img {
@@ -48,18 +56,28 @@
   cursor: pointer;
   padding: 10px 0px;
   text-transform: uppercase;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.85rem;
   text-transform: uppercase;
   font-weight: bold;
+  transition: 0.3s;
+}
+
+.details:hover {
+  border-color: #010101;
 }
 
 .details img {
   width: 22px;
   height: 22px;
+  transition: 0.3s;
+}
+
+.details:hover img {
+  transform: rotate(45deg);
 }
 
 .cp {
@@ -67,6 +85,7 @@
   color: #f5ebeb;
   padding: 10px 0px;
   text-align: center;
+  border: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,9 +94,32 @@
   text-transform: uppercase;
   font-weight: bold;
   gap: 10px;
+  transition: 0.3s;
+}
+
+.cp:hover img {
+  animation: balancar 0.3s forwards;
+}
+
+@keyframes balancar {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-20deg);
+  }
+  60% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .cp img {
   width: 22px;
   height: 22px;
+}
+.cp:hover {
+  border-color: #010101;
 }
