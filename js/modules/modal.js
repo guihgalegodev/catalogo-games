@@ -52,7 +52,6 @@ export function initModalEvents() {
     if (escala < 1) escala = 1;
     if (escala > 3) escala = 3;
 
-    // modalImg.style.transform = `scale(${escala})`;
     aplicarTransform();
   });
 
@@ -84,22 +83,16 @@ export function initModalEvents() {
     indexAtual = (indexAtual + 1) % imagens.length;
     modalImg.src = imagens[indexAtual];
     resetarImagem();
-    // escala = 1;
-    // modalImg.style.transform = "scale(1)";
   });
 
   btnPrev.addEventListener("click", () => {
     indexAtual = (indexAtual - 1 + imagens.length) % imagens.length;
     modalImg.src = imagens[indexAtual];
     resetarImagem();
-    // escala = 1;
-    // modalImg.style.transform = "scale(1)";
   });
 
   fechar.addEventListener("click", () => {
     modal.style.display = "none";
     resetarImagem();
-    // escala = 1;
-    // modalImg.style.transform = "scale(1)";
   });
 }
