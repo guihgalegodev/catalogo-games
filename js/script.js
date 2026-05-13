@@ -1,5 +1,6 @@
 import { games } from "./modules/games.js";
 import { abrirModal, initModalEvents } from "./modules/modal.js";
+import { initMenuMobile } from "./modules/menu.js";
 
 const btnDetalhes = document.querySelectorAll(".details");
 const isMobile = window.innerWidth <= 980;
@@ -24,3 +25,4 @@ btnDetalhes.forEach((btn) => {
 });
 
 initModalEvents();
+initMenuMobile();

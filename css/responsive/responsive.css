@@ -9,8 +9,8 @@
   }
 }
 
-@media (max-width: 780px) {
-  .header h1 {
+@media (max-width: 785px) {
+  .header a {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
@@ -23,10 +23,34 @@
     align-items: center;
     justify-content: center;
   }
+
+  #btn-mobile {
+    display: block;
+  }
+
+  #menu {
+    display: block;
+    background: #e60012;
+    position: absolute;
+    z-index: 9;
+    left: 0px;
+    top: 110px;
+    width: 100%;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+    transition: 0.4s;
+  }
+
+  #nav-menu.active #menu {
+    height: 250px;
+    visibility: visible;
+    overflow-y: auto;
+  }
 }
 
 @media (max-width: 400px) {
-  .header h1 {
+  .header a {
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
