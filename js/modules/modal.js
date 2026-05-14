@@ -8,6 +8,8 @@ let isDragging = false;
 let startX = 0;
 let startY = 0;
 
+export const events = ["click", "touchstart"];
+
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const fechar = document.querySelector(".fechar");
@@ -79,20 +81,25 @@ export function initModalEvents() {
     modalImg.style.cursor = escala > 1 ? "grab" : "zoom-in";
   });
 
-  btnNext.addEventListener("click", () => {
-    indexAtual = (indexAtual + 1) % imagens.length;
-    modalImg.src = imagens[indexAtual];
-    resetarImagem();
-  });
+  for (let i = 0; i < events.length; i++) {
+    btnNext.addEventListener(events[i], (e) => {
+      if (e.type === "touchstart") e.preventDefault();
+      indexAtual = (indexAtual + 1) % imagens.length;
+      modalImg.src = imagens[indexAtual];
+      resetarImagem();
+    });
 
-  btnPrev.addEventListener("click", () => {
-    indexAtual = (indexAtual - 1 + imagens.length) % imagens.length;
-    modalImg.src = imagens[indexAtual];
-    resetarImagem();
-  });
+    btnPrev.addEventListener(events[i], (e) => {
+      if (e.type === "touchstart") e.preventDefault();
+      indexAtual = (indexAtual - 1 + imagens.length) % imagens.length;
+      modalImg.src = imagens[indexAtual];
+      resetarImagem();
+    });
 
-  fechar.addEventListener("click", () => {
-    modal.style.display = "none";
-    resetarImagem();
-  });
+    fechar.addEventListener(events[i], (e) => {
+      if (e.type === "touchstart") e.preventDefault();
+      modal.style.display = "none";
+      resetarImagem();
+    });
+  }
 }
