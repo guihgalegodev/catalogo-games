@@ -54,6 +54,7 @@
 @media (max-width: 580px) {
   .header {
     padding: 0px;
+    margin: 0px;
   }
 }
 

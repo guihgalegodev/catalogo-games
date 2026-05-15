@@ -3,7 +3,6 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   justify-items: center;
-  margin: 30px 0px;
 }
 
 .jogo {
