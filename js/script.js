@@ -1,6 +1,7 @@
 import { games } from "./modules/games.js";
 import { abrirModal, initModalEvents, events } from "./modules/modal.js";
 import { initMenuMobile } from "./modules/menu.js";
+import { initScrollAnimado } from "./modules/scroll-animado.js";
 
 const btnDetalhes = document.querySelectorAll(".details");
 const isMobile = window.innerWidth <= 980;
@@ -27,14 +28,6 @@ btnDetalhes.forEach((btn) => {
   }
 });
 
-// btnDetalhes.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     const gameKey = btn.dataset.game;
-//     const listaImagens = games[gameKey];
-
-//     abrirModal(listaImagens);
-//   });
-// });
-
 initModalEvents();
 initMenuMobile();
+initScrollAnimado();
