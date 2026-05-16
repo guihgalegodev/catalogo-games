@@ -1,7 +1,12 @@
 footer {
   width: 100%;
   text-align: center;
-  background: #e60012;
+  background: var(--gradiente-vice-azul-escuro-rosa-claro);
+}
+
+.footer-content p {
+  color: var(--branco);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-content {

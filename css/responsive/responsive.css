@@ -32,7 +32,7 @@
 
   #menu {
     display: block;
-    background: #e60012;
+    background: var(--gradiente-menu-mobile);
     position: absolute;
     z-index: 9;
     left: 0px;
