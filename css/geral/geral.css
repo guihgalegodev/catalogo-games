@@ -1,23 +1,10 @@
 :root {
-  --gradiente-vice-rosa-escuro-azul-claro: linear-gradient(
-    0deg,
-    #f195ac 0%,
-    #00a8ff 100%
-  );
+  --gradiente-vermelho: linear-gradient(90deg, #e60012 0%, #ff5722 100%);
 
-  --gradiente-menu-mobile: linear-gradient(0deg, #00a8ff 0%, #f195ac 100%);
-  --gradiente-vice-azul-escuro-rosa-claro: linear-gradient(
-    90deg,
-    #0266c8 0%,
-    #f4afc2 100%
-  );
-  --gradiente-vice-roxo-rosa-claro: linear-gradient(
-    90deg,
-    #b28bc0 0%,
-    #00a8ff 100%
-  );
-
-  --roxo-vice: #b28bc0;
+  --amarelo-ml: #ffe600;
+  --laranja-sp: #ee4d2d;
+  --vermelho-nintendo: #e60012;
+  --roxo: #4b0082;
   --branco: #e2e2e2;
   --preto: #1d1d1d;
 }
