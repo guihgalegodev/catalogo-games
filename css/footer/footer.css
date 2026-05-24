@@ -1,7 +1,7 @@
 footer {
   width: 100%;
   text-align: center;
-  background: var(--gradiente-vermelho);
+  background: var(--preto);
 }
 
 .footer-content p {

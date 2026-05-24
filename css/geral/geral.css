@@ -1,12 +1,8 @@
 :root {
-  --gradiente-vermelho: linear-gradient(90deg, #e60012 0%, #ff5722 100%);
-
-  --amarelo-ml: #ffe600;
-  --laranja-sp: #ee4d2d;
-  --vermelho-nintendo: #e60012;
-  --roxo: #4b0082;
+  --gradiente-infinitepay: linear-gradient(90deg, #1ceb29 0%, #f0ca0a 100%);
+  --cinza: #dadada;
   --branco: #e2e2e2;
-  --preto: #1d1d1d;
+  --preto: #080808;
 }
 
 * {
@@ -16,7 +12,7 @@
 }
 
 body {
-  background: var(--preto);
+  background: #000;
   color: var(--branco);
 }
 

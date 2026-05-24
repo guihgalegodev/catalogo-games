@@ -103,7 +103,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.85rem;
   text-align: left;
-  background-color: var(--preto);
+  background-color: #000;
   padding: 5px 0px;
 }
 
@@ -112,9 +112,8 @@
 }
 
 .details {
-  /* background: #0bd6a3; */
-  background: var(--roxo);
-  color: #f5ebeb;
+  background: var(--cinza);
+  color: var(--preto);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,8 +148,8 @@
 }
 
 .cp {
-  background: var(--laranja-sp);
-  color: #f5ebeb;
+  background: var(--gradiente-infinitepay);
+  color: var(--preto);
   padding: 10px 0px;
   text-align: center;
   border: 1px solid transparent;
