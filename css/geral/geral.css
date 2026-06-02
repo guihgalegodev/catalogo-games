@@ -1,8 +1,9 @@
 :root {
-  --gradiente-infinitepay: linear-gradient(90deg, #1ceb29 0%, #f0ca0a 100%);
+  --gradiente-rinne: linear-gradient(90deg, #a7a4b5 0%, #5b5e89 100%);
   --cinza: #dadada;
   --branco: #e2e2e2;
   --preto: #080808;
+  --roxo-rinne: #5b5e89;
 }
 
 * {

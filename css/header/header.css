@@ -32,25 +32,35 @@
   padding: 10px;
 }
 
-.logo {
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  /* flex-direction: column; */
-  gap: 10px;
-}
-
 #menu {
   display: flex;
   gap: 1.5rem;
 }
 
-#menu li a {
+#menu a {
   font-size: 1.2rem;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--branco);
   width: max-content;
   padding: 10px;
+  transition: 0.3s;
+}
+
+#menu a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: var(--roxo-rinne);
+  transition: 0.3s;
+}
+
+#menu a:hover {
+  color: var(--roxo-rinne);
+}
+
+#menu a:hover::after {
+  width: 100%;
 }
 
 #btn-mobile {
