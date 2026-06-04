@@ -36,8 +36,9 @@
     position: absolute;
     z-index: 9;
     left: 0px;
-    top: 140px;
+    top: 110px;
     width: 100%;
+    padding-top: 10px;
     height: 0px;
     visibility: hidden;
     overflow-y: hidden;
@@ -50,9 +51,10 @@
     overflow-y: auto;
   }
 
-  #menu li a {
+  #menu a {
     font-size: 1rem;
     margin-left: 30px;
+    margin-bottom: 10px;
   }
 
   .details {
@@ -71,7 +73,7 @@
   }
 
   #menu {
-    top: 140px;
+    top: 110px;
   }
 
   #menu li a {
@@ -101,7 +103,7 @@
   }
 
   #menu {
-    top: 110px;
+    top: 102px;
   }
 
   .logo span {

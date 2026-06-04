@@ -1,6 +1,6 @@
 export function initScrollAnimado() {
   const jogosAnimar = document.querySelectorAll("[data-anima]");
-  const metadeWindow = window.innerHeight * 0.7;
+  const metadeWindow = window.innerHeight * 0.5;
   function animaScroll() {
     jogosAnimar.forEach((jogo) => {
       const jogoTop = jogo.getBoundingClientRect().top;
