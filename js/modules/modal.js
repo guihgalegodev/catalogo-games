@@ -7,6 +7,8 @@ let posY = 0;
 let isDragging = false;
 let startX = 0;
 let startY = 0;
+let touchStartDistance = 0;
+let touchStartScale = 1;
 
 export const events = ["click", "touchstart"];
 
@@ -79,6 +81,61 @@ export function initModalEvents() {
   window.addEventListener("mouseup", () => {
     isDragging = false;
     modalImg.style.cursor = escala > 1 ? "grab" : "zoom-in";
+  });
+
+  // Eventos de toque para dispositivos móveis (zoom por pinça e arrasto)
+  modalImg.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1) {
+      if (escala > 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX - posX;
+        startY = e.touches[0].clientY - posY;
+      }
+    } else if (e.touches.length === 2) {
+      isDragging = false;
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      touchStartDistance = Math.hypot(dx, dy);
+      touchStartScale = escala;
+    }
+  });
+
+  window.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 1 && isDragging) {
+      posX = e.touches[0].clientX - startX;
+      posY = e.touches[0].clientY - startY;
+      aplicarTransform();
+    } else if (e.touches.length === 2 && touchStartDistance > 0) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const currentDistance = Math.hypot(dx, dy);
+      const factor = currentDistance / touchStartDistance;
+      escala = touchStartScale * factor;
+
+      if (escala < 1) escala = 1;
+      if (escala > 3) escala = 3;
+
+      aplicarTransform();
+    }
+  });
+
+  window.addEventListener("touchend", (e) => {
+    if (e.touches.length === 0) {
+      isDragging = false;
+      touchStartDistance = 0;
+    } else if (e.touches.length === 1) {
+      if (escala > 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX - posX;
+        startY = e.touches[0].clientY - posY;
+      }
+      touchStartDistance = 0;
+    }
+  });
+
+  window.addEventListener("touchcancel", () => {
+    isDragging = false;
+    touchStartDistance = 0;
   });
 
   for (let i = 0; i < events.length; i++) {
