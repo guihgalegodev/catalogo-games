@@ -14,6 +14,7 @@ export const events = ["click", "touchstart"];
 
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
+const modalVideo = document.getElementById("modal-video");
 const fechar = document.querySelector(".fechar");
 const btnNext = document.querySelector(".next");
 const btnPrev = document.querySelector(".prev");
@@ -23,7 +24,31 @@ export function abrirModal(listaImagens) {
   indexAtual = 0;
 
   modal.style.display = "flex";
-  modalImg.src = imagens[indexAtual];
+  atualizarMidia();
+}
+
+// Verifica a extensão do arquivo
+function isVideo(url) {
+  return url.endsWith(".mp4") || url.endsWith(".webm") || url.endsWith(".ogg");
+}
+// Controla a exibição de imagem ou vídeo no modal
+function atualizarMidia() {
+  const midiaAtual = imagens[indexAtual];
+  // Sempre pausa e limpa o vídeo anterior ao trocar de mídia
+  modalVideo.pause();
+  modalVideo.src = "";
+  if (isVideo(midiaAtual)) {
+    // Esconde a imagem, mostra o vídeo
+    modalImg.style.display = "none";
+    modalVideo.style.display = "block";
+    modalVideo.src = midiaAtual;
+    modalVideo.load();
+  } else {
+    // Esconde o vídeo, mostra a imagem
+    modalVideo.style.display = "none";
+    modalImg.style.display = "block";
+    modalImg.src = midiaAtual;
+  }
 }
 
 function resetarImagem() {
@@ -142,20 +167,22 @@ export function initModalEvents() {
     btnNext.addEventListener(events[i], (e) => {
       if (e.type === "touchstart") e.preventDefault();
       indexAtual = (indexAtual + 1) % imagens.length;
-      modalImg.src = imagens[indexAtual];
+      atualizarMidia();
       resetarImagem();
     });
 
     btnPrev.addEventListener(events[i], (e) => {
       if (e.type === "touchstart") e.preventDefault();
       indexAtual = (indexAtual - 1 + imagens.length) % imagens.length;
-      modalImg.src = imagens[indexAtual];
+      atualizarMidia();
       resetarImagem();
     });
 
     fechar.addEventListener(events[i], (e) => {
       if (e.type === "touchstart") e.preventDefault();
       modal.style.display = "none";
+      modalVideo.pause();
+      modalVideo.src = "";
       resetarImagem();
     });
   }

@@ -12,12 +12,15 @@
   touch-action: none;
 }
 
-.modal img {
+.modal img, .modal video {
   max-width: 90%;
   max-height: 90%;
   transition: transform 0.2s ease;
-  cursor: zoom-in;
   touch-action: none;
+}
+
+.modal img {
+  cursor: zoom-in;
 }
 
 .fechar {
