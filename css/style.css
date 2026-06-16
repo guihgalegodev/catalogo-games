@@ -1,6 +1,7 @@
 @import "./geral/geral.css";
 @import "./header/header.css";
-@import "./main-content/main-content.css";
+@import "./main-content/produtos.css";
+@import "./main-content/home.css";
 @import "./footer/footer.css";
 @import "./modal/modal.css";
 @import "./responsive/responsive.css";

@@ -30,14 +30,16 @@ btnDetalhes.forEach((btn) => {
         if (!response.ok) {
           throw new Error("Não foi possível carregar os dados dos jogos.");
         }
-        
+
         const games = await response.json();
         const listaImagens = games[gameKey];
 
         if (listaImagens) {
           abrirModal(listaImagens);
         } else {
-          throw new Error(`Jogo com a chave "${gameKey}" não foi encontrado no arquivo de dados.`);
+          throw new Error(
+            `Jogo com a chave "${gameKey}" não foi encontrado no arquivo de dados.`,
+          );
         }
       } catch (error) {
         console.error("Erro:", error);
@@ -51,6 +53,6 @@ btnDetalhes.forEach((btn) => {
   }
 });
 
-initModalEvents();
 initMenuMobile();
 initScrollAnimado();
+initModalEvents();

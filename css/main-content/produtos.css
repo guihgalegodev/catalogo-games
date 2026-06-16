@@ -12,34 +12,33 @@
   min-width: 250px;
   position: relative;
   padding: 10px;
+  transition: 0.7s;
 }
 
 .jogo.ativo.right {
+  opacity: 1;
   animation: showRight 0.7s forwards;
 }
 
 .jogo.ativo.down {
+  opacity: 1;
   animation: showDown 0.7s forwards;
 }
 
 @keyframes showRight {
   from {
-    opacity: 0;
     transform: translate(-30px);
   }
   to {
-    opacity: 1;
     transform: translate(0px);
   }
 }
 
 @keyframes showDown {
   from {
-    opacity: 0;
     transform: translate(0px, -30px);
   }
   to {
-    opacity: 1;
     transform: translate(0px, 0px);
   }
 }

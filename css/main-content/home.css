@@ -1,0 +1,55 @@
+.intro {
+  opacity: 0;
+  margin-top: -30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  align-items: center;
+  transition: 0.7s;
+}
+
+.intro img {
+  margin-bottom: -30px;
+}
+
+.intro.ativo.right {
+  opacity: 1;
+  animation: showRight 0.7s forwards;
+}
+
+.intro h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.35rem;
+}
+
+.infos {
+  height: 500px;
+}
+
+.infos p {
+  opacity: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1.3;
+  margin: 20px 10px;
+  transition: 0.7s;
+}
+
+.infos p.ativo.right {
+  opacity: 1;
+  animation: showRight 0.7s forwards;
+}
+
+.olx {
+  font-weight: bold;
+  color: #7312d7;
+}
+
+.olx-l {
+  color: #90e668;
+}
+
+.olx-x {
+  color: #f28408;
+}

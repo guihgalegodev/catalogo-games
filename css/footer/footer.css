@@ -2,6 +2,7 @@ footer {
   width: 100%;
   text-align: center;
   background: var(--preto);
+  margin-top: 60px;
 }
 
 .footer-content p {
