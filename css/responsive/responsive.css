@@ -45,13 +45,17 @@
     position: absolute;
     z-index: 9;
     left: 0px;
-    top: 110px;
+    top: 85px;
     width: 100%;
     padding-top: 10px;
     height: 0px;
     visibility: hidden;
     overflow-y: hidden;
     transition: 0.4s;
+  }
+
+  #menu li {
+    margin-left: 10px;
   }
 
   #nav-menu.active #menu {
@@ -96,11 +100,11 @@
   }
 
   #menu {
-    top: 110px;
+    top: 85px;
   }
 
-  #menu li a {
-    margin-left: 10px;
+  #menu li {
+    margin-left: -10px;
   }
 }
 
@@ -121,16 +125,28 @@
 
 @media (max-width: 400px) {
   #foto-logo {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 
   #menu {
-    top: 102px;
+    top: 65px;
+  }
+
+  #menu li {
+    margin-left: -15px;
+  }
+
+  #menu a {
+    font-size: 0.95rem;
   }
 
   .logo span {
     font-size: 0.75rem;
+  }
+
+  .jogos {
+    margin-top: 80px;
   }
 
   .jogo {
