@@ -13,12 +13,32 @@
   .jogo-img.ativo .overlay {
     opacity: 1;
   }
+
+  #box-title h1 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 790px) {
+  .header {
+    padding: 15px 0px;
+  }
+
   .logo span {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .intro {
+    margin-top: 110px;
+  }
+
+  #box-title h1 {
+    font-size: 1.75rem;
+  }
+
+  .intro .sub-title {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
   }
 
   .jogos {
@@ -31,10 +51,6 @@
     height: 200px;
   }
 
-  .intro h1 {
-    font-size: 1.2rem;
-  }
-
   #btn-mobile {
     display: flex;
   }
@@ -45,7 +61,7 @@
     position: absolute;
     z-index: 9;
     left: 0px;
-    top: 85px;
+    top: 75px;
     width: 100%;
     padding-top: 10px;
     height: 0px;
@@ -55,7 +71,7 @@
   }
 
   #menu li {
-    margin-left: 10px;
+    margin-left: -20px;
   }
 
   #nav-menu.active #menu {
@@ -81,17 +97,17 @@
 
 @media (max-width: 580px) {
   .header {
-    padding: 0px;
-    margin: 0px;
+    padding: 10px 0px;
   }
 
-  .intro img {
-    height: 150px;
-  }
-
-  .intro h1 {
-    margin: 20px 10px;
+  .logo span {
     font-size: 0.85rem;
+  }
+
+  .intro .sub-title {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 25px;
   }
 
   .infos p {
@@ -100,26 +116,26 @@
   }
 
   #menu {
-    top: 85px;
+    top: 65px;
   }
 
   #menu li {
     margin-left: -10px;
   }
+
+  .container {
+    margin: 0px 10px;
+  }
 }
 
 @media (max-width: 530px) {
-  .logo {
-    flex-direction: column;
-  }
-  .logo span {
-    font-size: 1rem;
-    border: none;
-  }
-
   .jogos {
     grid-template-columns: 1fr;
     gap: 30px 0px;
+  }
+
+  #box-title h1 {
+    font-size: 1.3rem;
   }
 }
 
@@ -133,9 +149,9 @@
     top: 65px;
   }
 
-  #menu li {
-    margin-left: -15px;
-  }
+  /* #menu li {
+    margin-left: -20px;
+  } */
 
   #menu a {
     font-size: 0.95rem;
@@ -143,6 +159,10 @@
 
   .logo span {
     font-size: 0.75rem;
+  }
+
+  #box-title h1 {
+    font-size: 0.755rem;
   }
 
   .jogos {
