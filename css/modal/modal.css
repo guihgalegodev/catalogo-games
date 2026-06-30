@@ -1,7 +1,7 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -12,7 +12,8 @@
   touch-action: none;
 }
 
-.modal img, .modal video {
+.modal img,
+.modal video {
   max-width: 90%;
   max-height: 90%;
   transition: transform 0.2s ease;
