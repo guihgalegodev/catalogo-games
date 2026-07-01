@@ -28,10 +28,6 @@
     font-size: 0.95rem;
   }
 
-  .intro {
-    margin-top: 110px;
-  }
-
   #box-title h1 {
     font-size: 1.75rem;
   }
@@ -61,7 +57,7 @@
     position: absolute;
     z-index: 9;
     left: 0px;
-    top: 75px;
+    top: 70px;
     width: 100%;
     padding-top: 10px;
     height: 0px;
@@ -75,7 +71,7 @@
   }
 
   #nav-menu.active #menu {
-    height: 250px;
+    height: calc(100vh - 50px);
     visibility: visible;
     overflow-y: auto;
   }
@@ -116,7 +112,7 @@
   }
 
   #menu {
-    top: 65px;
+    top: 60px;
   }
 
   #menu li {
@@ -126,6 +122,11 @@
   .container {
     margin: 0px 10px;
   }
+
+  .jogos {
+    margin-top: 110px;
+  }
+
 }
 
 @media (max-width: 530px) {
@@ -146,12 +147,8 @@
   }
 
   #menu {
-    top: 65px;
+    top: 57px;
   }
-
-  /* #menu li {
-    margin-left: -20px;
-  } */
 
   #menu a {
     font-size: 0.95rem;
@@ -163,10 +160,6 @@
 
   #box-title h1 {
     font-size: 0.755rem;
-  }
-
-  .jogos {
-    margin-top: 80px;
   }
 
   .jogo {

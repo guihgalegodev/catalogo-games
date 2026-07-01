@@ -11,7 +11,9 @@
   text-align: center;
   margin: 0 auto;
   display: flex;
-  padding: 20px 0px;
+  /* background: red; */
+  height: 100%;
+  padding: 20px;
   justify-content: space-between;
   align-items: center;
 }

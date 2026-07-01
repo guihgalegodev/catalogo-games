@@ -63,6 +63,8 @@ function aplicarTransform() {
 }
 
 export function initModalEvents() {
+  if (!modal || !modalImg) return;
+
   const isDesktop = window.innerWidth > 768;
 
   modalImg.addEventListener("wheel", (e) => {

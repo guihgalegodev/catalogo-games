@@ -1,6 +1,20 @@
 export function initMenuMobile() {
   const btnMobile = document.getElementById("btn-mobile");
 
+  const firstLi = document.querySelector("li");
+
+  if (window.innerWidth <= 790) {
+    firstLi.style.marginTop = "20px";
+  }
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 790) {
+      firstLi.style.marginTop = "20px";
+    } else {
+      firstLi.style.marginTop = "0px";
+    }
+  })
+
   function abrirFecharMenu(e) {
     if (e.type === "touchstart") e.preventDefault();
     const nav = document.getElementById("nav-menu");
