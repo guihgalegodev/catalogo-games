@@ -13,7 +13,19 @@ export function initMenuMobile() {
     } else {
       firstLi.style.marginTop = "0px";
     }
-  })
+  });
+
+  const isMobile = window.innerWidth <= 980;
+
+  if (isMobile) {
+    const cards = document.querySelectorAll(".jogo-img");
+
+    cards.forEach((card) => {
+      setInterval(() => {
+        card.classList.toggle("ativo");
+      }, 3000);
+    });
+  }
 
   function abrirFecharMenu(e) {
     if (e.type === "touchstart") e.preventDefault();

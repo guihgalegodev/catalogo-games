@@ -173,7 +173,7 @@
 .cp {
   /* background: var(--gradiente-infinitepay); */
   background: var(--gradiente-rinne);
-  color: var(--preto);
+  color: #000;
   padding: 10px 0px;
   text-align: center;
   border: 1px solid transparent;

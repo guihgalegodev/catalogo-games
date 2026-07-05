@@ -126,7 +126,6 @@
   .jogos {
     margin-top: 110px;
   }
-
 }
 
 @media (max-width: 530px) {
@@ -150,16 +149,24 @@
     top: 57px;
   }
 
+  #box-title {
+    border: none;
+  }
+
+  #box-title h1 {
+    font-size: 0.955rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
   #menu a {
     font-size: 0.95rem;
   }
 
   .logo span {
     font-size: 0.75rem;
-  }
-
-  #box-title h1 {
-    font-size: 0.755rem;
   }
 
   .jogo {

@@ -1,11 +1,11 @@
 :root {
-  --gradiente-rinne: linear-gradient(90deg, #a7a4b5 0%, #5b5e89 100%);
-  /* --gradiente-rinne: linear-gradient(90deg, #4febe0 0%, #fd6f3b 100%); */
+  /* --gradiente-rinne: linear-gradient(90deg, #a7a4b5 0%, #5b5e89 100%); */
+  --gradiente-rinne: linear-gradient(90deg, #14ea23 0%, #f0c802 100%);
 
   --cinza: #dadada;
   --branco: #e2e2e2;
   --preto: #191918;
-  --roxo-rinne: #5b5e89;
+  --roxo-rinne: #14ea23;
 }
 
 * {
@@ -50,8 +50,9 @@ a {
 }
 
 .hub {
+  /* background: var(--roxo-rinne); */
   background: var(--roxo-rinne);
-  color: var(--cinza);
+  color: #000;
   padding: 10px;
   border-radius: 4px;
 }

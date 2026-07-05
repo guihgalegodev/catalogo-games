@@ -3,17 +3,6 @@ import { initMenuMobile } from "./modules/menu.js";
 import { initScrollAnimado } from "./modules/scroll-animado.js";
 
 const btnDetalhes = document.querySelectorAll(".details");
-const isMobile = window.innerWidth <= 980;
-
-if (isMobile) {
-  const cards = document.querySelectorAll(".jogo-img");
-
-  cards.forEach((card) => {
-    setInterval(() => {
-      card.classList.toggle("ativo");
-    }, 3000);
-  });
-}
 
 btnDetalhes.forEach((btn) => {
   for (let i = 0; i < events.length; i++) {
@@ -52,6 +41,25 @@ btnDetalhes.forEach((btn) => {
     });
   }
 });
+
+// const pricePix = document.querySelectorAll(".price-pix");
+// const priceCredit = document.querySelectorAll(".price-credit-card");
+
+// pricePix.forEach((price) => {
+//   const $price = +price.innerText;
+//   price.innerText = $price.toLocaleString("pt-BR", {
+//     style: "currency",
+//     currency: "BRL",
+//   });
+// });
+
+// priceCredit.forEach((price) => {
+//   const $price = +price.innerText;
+//   price.innerText = $price.toLocaleString("pt-BR", {
+//     style: "currency",
+//     currency: "BRL",
+//   });
+// });
 
 initMenuMobile();
 initScrollAnimado();
