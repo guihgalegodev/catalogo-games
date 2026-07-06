@@ -102,7 +102,7 @@
 }
 
 .price-pix {
-  color: var(--roxo-rinne);
+  color: #4ab0a7;
   display: flex;
   font-size: 1rem;
   flex-direction: column;
@@ -119,10 +119,8 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   text-align: left;
-  /* background-color: #bb; */
   text-align: center;
   margin: 15px 0px;
-  /* padding: 5px 0px; */
 }
 
 .condicao {
@@ -172,7 +170,7 @@
 
 .cp {
   /* background: var(--gradiente-infinitepay); */
-  background: var(--gradiente-rinne);
+  background: var(--gradiente-gta5);
   color: #000;
   padding: 10px 0px;
   text-align: center;

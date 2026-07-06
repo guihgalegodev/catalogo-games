@@ -1,11 +1,10 @@
 :root {
-  /* --gradiente-rinne: linear-gradient(90deg, #a7a4b5 0%, #5b5e89 100%); */
-  --gradiente-rinne: linear-gradient(90deg, #14ea23 0%, #f0c802 100%);
+  --gradiente-gta5: linear-gradient(90deg, #ec43a6 0%, #ff9049 100%);
 
   --cinza: #dadada;
   --branco: #e2e2e2;
   --preto: #191918;
-  --roxo-rinne: #14ea23;
+  --laranja: #ff9049;
 }
 
 * {
@@ -50,8 +49,7 @@ a {
 }
 
 .hub {
-  /* background: var(--roxo-rinne); */
-  background: var(--roxo-rinne);
+  background: var(--gradiente-gta5);
   color: #000;
   padding: 10px;
   border-radius: 4px;

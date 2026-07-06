@@ -140,6 +140,10 @@
 }
 
 @media (max-width: 400px) {
+  #hub-text-home {
+    margin-left: 8px;
+  }
+
   #foto-logo {
     width: 60px;
     height: 60px;

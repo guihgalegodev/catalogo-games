@@ -53,12 +53,12 @@
   display: block;
   width: 0;
   height: 3px;
-  background: var(--roxo-rinne);
+  background: var(--laranja);
   transition: 0.3s;
 }
 
 #menu a:hover {
-  color: var(--roxo-rinne);
+  color: var(--laranja);
 }
 
 #menu a:hover::after {
