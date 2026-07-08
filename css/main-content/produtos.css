@@ -10,7 +10,10 @@
   opacity: 0;
   display: flex;
   flex-direction: column;
-  min-width: 250px;
+  background: rgba(88, 15, 85, 0.3);
+  border-radius: 4px;
+  /* min-width: 200px; */
+  width: 250px;
   position: relative;
   padding: 10px;
   transition: 0.7s;
@@ -95,10 +98,10 @@
   font-weight: bold;
   text-align: center;
   align-self: center;
-  border-radius: 4px;
+  border-radius: 0px 0px 4px 4px;
   width: 100%;
-  padding: 5px;
-  margin-top: 10px;
+  padding: 15px 5px;
+  margin-top: auto;
 }
 
 .price-pix {
@@ -116,11 +119,15 @@
 }
 
 .game-name {
+  min-height: 4rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: 15px 0px;
+  margin: 10px 0px;
 }
 
 .condicao {
