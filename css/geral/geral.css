@@ -1,10 +1,10 @@
 :root {
-  --gradiente-gta5: linear-gradient(90deg, #ec43a6 0%, #ff9049 100%);
+  --gradiente-gta5: linear-gradient(90deg, #ec43a6 0%, #345ed3 100%);
 
   --cinza: #dadada;
   --branco: #e2e2e2;
   --preto: #191918;
-  --laranja: #ff9049;
+  --links-color: #345ed3;
 }
 
 * {

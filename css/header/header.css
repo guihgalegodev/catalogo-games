@@ -53,12 +53,12 @@
   display: block;
   width: 0;
   height: 3px;
-  background: var(--laranja);
+  background: var(--links-color);
   transition: 0.3s;
 }
 
 #menu a:hover {
-  color: var(--laranja);
+  color: var(--links-color);
 }
 
 #menu a:hover::after {
