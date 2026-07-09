@@ -5,7 +5,7 @@ export function initScrollAnimado() {
     jogosAnimar.forEach((jogo) => {
       const jogoTop = jogo.getBoundingClientRect().top;
       const isVisible = jogoTop - metadeWindow < 0;
-      if (isVisible) {
+      if (isVisible && !jogo.classList.contains("ativo")) {
         const direcao = jogo.dataset.anima;
         jogo.classList.add("ativo", direcao);
       }

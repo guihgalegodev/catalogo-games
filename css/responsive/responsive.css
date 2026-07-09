@@ -200,16 +200,36 @@
     max-height: 180px;
   }
 
-  /* .jogo {
-    width: 180px;
-  } */
-
   .jogo {
     width: 90%;
+    padding: 0px;
   }
 
   .game-name {
     font-size: 0.85rem;
+  }
+
+  .prices {
+    padding: 0px;
+    font-size: 0.75rem;
+  }
+
+  .price-pix {
+    margin-top: 10px;
+    font-size: 0.75rem;
+  }
+
+  .price-pix img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .botoes {
+    margin-top: 10px;
+  }
+
+  .cp {
+    margin-bottom: 10px;
   }
 
   .cp img {
