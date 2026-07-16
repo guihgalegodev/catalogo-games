@@ -33,10 +33,6 @@
   margin-top: 30px;
 }
 
-.infos {
-  height: 700px;
-}
-
 .infos p {
   opacity: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -62,4 +58,39 @@
 
 .olx-x {
   color: #f28408;
+}
+
+.lojas-info {
+  margin: 3.5rem 0px;
+}
+
+.loja {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.lojas-info p {
+  opacity: 1;
+}
+
+.loja {
+  opacity: 0;
+}
+
+.loja.ativo.down {
+  opacity: 1;
+  animation: showDown 0.7s forwards;
+}
+
+.loja.ativo.right {
+  opacity: 1;
+  animation: showRight 0.7s forwards;
+}
+
+.sh {
+  color: #ea501f;
 }

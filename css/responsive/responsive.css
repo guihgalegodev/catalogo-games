@@ -89,6 +89,11 @@
   .cp {
     border: none;
   }
+
+  .loja img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 580px) {
@@ -146,6 +151,11 @@
 
   #box-title h1 {
     font-size: 1.3rem;
+  }
+
+  .loja img {
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -240,5 +250,14 @@
   .details img {
     width: 18px;
     height: 18px;
+  }
+
+  .lojas-info {
+    margin: 2rem 0px;
+  }
+
+  .loja img {
+    width: 80px;
+    height: 80px;
   }
 }
