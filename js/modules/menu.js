@@ -1,3 +1,4 @@
+import { links } from "./links.js";
 export function initMenuMobile() {
   const btnMobile = document.getElementById("btn-mobile");
 
@@ -42,4 +43,8 @@ export function initMenuMobile() {
 
   btnMobile.addEventListener("touchstart", abrirFecharMenu);
   btnMobile.addEventListener("click", abrirFecharMenu);
+  links.forEach((link) => {
+    link.addEventListener("touchstart", abrirFecharMenu);
+    link.addEventListener("click", abrirFecharMenu);
+  });
 }

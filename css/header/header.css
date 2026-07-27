@@ -65,6 +65,14 @@
   width: 100%;
 }
 
+#menu a.ativo::after {
+  width: 100%;
+}
+
+#menu a.ativo {
+  color: var(--links-color);
+}
+
 #btn-mobile {
   display: none;
   padding: 0.5rem 1rem;

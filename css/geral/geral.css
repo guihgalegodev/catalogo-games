@@ -16,7 +16,6 @@
 body {
   background: #000;
   color: var(--branco);
-  min-height: 100vh;
 }
 
 img {
@@ -74,4 +73,5 @@ a {
 .wrapper {
   display: grid;
   grid-template-rows: 1fr auto;
+  min-height: 100vh;
 }
