@@ -20,6 +20,21 @@ export default function initfetchPage() {
     linkAtivo(url);
     initScrollAnimado();
 
+    const isMobile = window.innerWidth <= 790;
+
+    if (!pageResponse.url.endsWith("index.html") && isMobile) {
+      const cards = document.querySelectorAll(".jogo-img");
+      // const overlaysCards = document.querySelectorAll(".overlay");
+      // overlaysCards.forEach((item, index) => {
+      //   item.style.backgroundImage = `url('../../assets/img/overlay-game-${index}.jpg')`;
+      // });
+      cards.forEach((card) => {
+        setInterval(() => {
+          card.classList.toggle("ativo");
+        }, 3000);
+      });
+    }
+
     const btnDetalhes = document.querySelectorAll(".content-fetch .details");
 
     btnDetalhes.forEach((btn) => {

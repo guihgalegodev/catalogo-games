@@ -63,6 +63,10 @@
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
+  /* background-image: url("../../assets/img/naruto-2-otm-300px.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
 
   display: flex;
   flex-direction: column;
