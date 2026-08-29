@@ -88,8 +88,10 @@
   letter-spacing: 1px;
 }
 
-.jogo-img:hover .overlay {
-  opacity: 1;
+@media (min-width: 791px) and (hover: hover) {
+  .jogo-img:hover .overlay {
+    opacity: 1;
+  }
 }
 
 .prices {
