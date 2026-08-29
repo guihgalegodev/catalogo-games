@@ -1,38 +1,31 @@
 import { links } from "./links.js";
-export function initMenuMobile() {
-  const btnMobile = document.getElementById("btn-mobile");
+export default class MenuMobile {
+  constructor(btnMobile, navMenu, cards) {
+    this.btnMobile = document.getElementById(btnMobile);
+    this.navMenu = document.getElementById(navMenu);
+    this.cards = document.querySelectorAll(cards);
+    this.windowMobile = 790;
 
-  const firstLi = document.querySelector("li");
+    this.events = ["touchstart", "click"];
 
-  if (window.innerWidth <= 790) {
-    firstLi.style.marginTop = "20px";
+    this.openCloseMenu = this.openCloseMenu.bind(this);
   }
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth <= 790) {
-      firstLi.style.marginTop = "20px";
-    } else {
-      firstLi.style.marginTop = "0px";
+  checkIsMobile() {
+    const isMobile = window.innerWidth < this.windowMobile;
+    if (isMobile) {
+      this.cards.forEach((card) => {
+        setInterval(() => {
+          card.classList.toggle("ativo");
+        }, 3000);
+      });
     }
-  });
-
-  const isMobile = window.innerWidth <= 980;
-
-  if (isMobile) {
-    const cards = document.querySelectorAll(".jogo-img");
-
-    cards.forEach((card) => {
-      setInterval(() => {
-        card.classList.toggle("ativo");
-      }, 3000);
-    });
   }
 
-  function abrirFecharMenu(e) {
+  openCloseMenu(e) {
     if (e.type === "touchstart") e.preventDefault();
-    const nav = document.getElementById("nav-menu");
-    nav.classList.toggle("active");
-    const active = nav.classList.contains("active");
+    this.navMenu.classList.toggle("active");
+    const active = this.navMenu.classList.contains("active");
     e.currentTarget.setAttribute("aria-expanded", active);
     if (active) {
       e.currentTarget.setAttribute("aria-label", "Fechar Menu");
@@ -41,10 +34,26 @@ export function initMenuMobile() {
     }
   }
 
-  btnMobile.addEventListener("touchstart", abrirFecharMenu);
-  btnMobile.addEventListener("click", abrirFecharMenu);
-  links.forEach((link) => {
-    link.addEventListener("touchstart", abrirFecharMenu);
-    link.addEventListener("click", abrirFecharMenu);
-  });
+  linkCloseMenu() {
+    links.forEach((link) => {
+      this.events.forEach((event) => {
+        link.addEventListener(event, this.openCloseMenu);
+      });
+    });
+  }
+
+  addBtnMobileEvents() {
+    this.events.forEach((event) => {
+      this.btnMobile.addEventListener(event, this.openCloseMenu);
+    });
+    this.linkCloseMenu();
+  }
+
+  init() {
+    if (this.btnMobile && this.navMenu) {
+      this.addBtnMobileEvents();
+      this.checkIsMobile();
+    }
+    return this;
+  }
 }
