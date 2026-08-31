@@ -1,8 +1,11 @@
 import { abrirModal, initModalEvents, events } from "./modal.js";
 import { initScrollAnimado } from "./scroll-animado.js";
+import CheckWindowMobile from "./check-is-mobile.js";
 import { links } from "./links.js";
 
 export default function initfetchPage() {
+  const initialUrl = window.location.href;
+  fetchPage(initialUrl);
   function handleClick(e) {
     e.preventDefault();
     fetchPage(e.target.href);
@@ -20,19 +23,10 @@ export default function initfetchPage() {
     linkAtivo(url);
     initScrollAnimado();
 
-    const isMobile = window.innerWidth <= 790;
-
-    if (!pageResponse.url.endsWith("index.html") && isMobile) {
-      const cards = document.querySelectorAll(".jogo-img");
-      // const overlaysCards = document.querySelectorAll(".overlay");
-      // overlaysCards.forEach((item, index) => {
-      //   item.style.backgroundImage = `url('../../assets/img/overlay-game-${index}.jpg')`;
-      // });
-      cards.forEach((card) => {
-        setInterval(() => {
-          card.classList.toggle("ativo");
-        }, 3000);
-      });
+    if (!pageResponse.url.endsWith("index.html")) {
+      const isMobile = 790;
+      const mobileWindow = new CheckWindowMobile(isMobile, ".jogo-img");
+      mobileWindow.init();
     }
 
     const btnDetalhes = document.querySelectorAll(".content-fetch .details");
