@@ -3,24 +3,11 @@ export default class MenuMobile {
   constructor(btnMobile, navMenu, cards) {
     this.btnMobile = document.getElementById(btnMobile);
     this.navMenu = document.getElementById(navMenu);
-    // this.cards = document.querySelectorAll(cards);
-    // this.windowMobile = 790;
 
     this.events = ["touchstart", "click"];
 
     this.openCloseMenu = this.openCloseMenu.bind(this);
   }
-
-  // checkIsMobile() {
-  //   const isMobile = window.innerWidth < this.windowMobile;
-  //   if (isMobile) {
-  //     this.cards.forEach((card) => {
-  //       setInterval(() => {
-  //         card.classList.toggle("ativo");
-  //       }, 3000);
-  //     });
-  //   }
-  // }
 
   openCloseMenu(e) {
     if (e.type === "touchstart") e.preventDefault();
@@ -52,7 +39,6 @@ export default class MenuMobile {
   init() {
     if (this.btnMobile && this.navMenu) {
       this.addBtnMobileEvents();
-      // this.checkIsMobile();
     }
     return this;
   }
