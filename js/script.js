@@ -4,7 +4,7 @@ import { initScrollAnimado } from "./modules/scroll-animado.js";
 
 initfetchPage();
 
-const menuMobile = new MenuMobile("btn-mobile", "nav-menu", ".jogo-img");
+const menuMobile = new MenuMobile("btn-mobile", "nav-menu");
 menuMobile.init();
 
 initScrollAnimado();
