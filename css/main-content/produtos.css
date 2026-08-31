@@ -39,12 +39,10 @@
 @keyframes showDown {
   from {
     opacity: 0;
-
     transform: translate(0px, -30px);
   }
   to {
     opacity: 1;
-
     transform: translate(0px, 0px);
   }
 }

@@ -1,17 +1,27 @@
-export function initScrollAnimado() {
-  const jogosAnimar = document.querySelectorAll("[data-anima]");
-  const metadeWindow = window.innerHeight * 0.5;
-  function animaScroll() {
-    jogosAnimar.forEach((jogo) => {
-      const jogoTop = jogo.getBoundingClientRect().top;
-      const isVisible = jogoTop - metadeWindow < 0;
-      if (isVisible && !jogo.classList.contains("ativo")) {
-        const direcao = jogo.dataset.anima;
-        jogo.classList.add("ativo", direcao);
+export default class ScrollAnimado {
+  constructor(elements) {
+    this.elements = document.querySelectorAll(elements);
+    this.metadeWindow = window.innerHeight * 0.5;
+
+    this.animaScroll = this.animaScroll.bind(this);
+  }
+  animaScroll() {
+    this.elements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      const isVisible = elementTop - this.metadeWindow < 0;
+
+      if (isVisible && !element.classList.contains("ativo")) {
+        const direcao = element.dataset.anima;
+        element.classList.add("ativo", direcao);
       }
     });
   }
 
-  animaScroll();
-  window.addEventListener("scroll", animaScroll);
+  init() {
+    if (this.elements.length) {
+      this.animaScroll();
+      window.addEventListener("scroll", this.animaScroll);
+    }
+    return this;
+  }
 }
