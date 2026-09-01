@@ -1,11 +1,12 @@
 import { abrirModal, initModalEvents, events } from "./modal.js";
-import { initScrollAnimado } from "./scroll-animado.js";
+import ScrollAnimado from "./scroll-animado.js";
 import CheckWindowMobile from "./check-is-mobile.js";
 import { links } from "./links.js";
 
 export default function initfetchPage() {
   const initialUrl = window.location.href;
   fetchPage(initialUrl);
+
   function handleClick(e) {
     e.preventDefault();
     fetchPage(e.target.href);
@@ -21,7 +22,8 @@ export default function initfetchPage() {
     const pageText = await pageResponse.text();
     replaceContent(pageText);
     linkAtivo(url);
-    initScrollAnimado();
+    const scrollAnimado = new ScrollAnimado("[data-anima]");
+    scrollAnimado.init();
 
     if (!pageResponse.url.endsWith("index.html")) {
       const isMobile = 790;
