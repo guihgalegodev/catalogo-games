@@ -87,6 +87,7 @@ export function initModalEvents() {
   });
 
   modalImg.addEventListener("mousedown", (e) => {
+    e.preventDefault();
     if (escala <= 1) return;
 
     isDragging = true;
