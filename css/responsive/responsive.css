@@ -49,6 +49,7 @@
 
   #btn-mobile {
     display: flex;
+    padding: 20px;
   }
 
   #menu {
@@ -79,7 +80,7 @@
   #menu a {
     font-size: 1rem;
     margin-left: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
 
   .details {
@@ -135,7 +136,6 @@
 
 @media (max-width: 530px) {
   .jogos {
-    /* grid-template-columns: 1fr 1fr; */
     gap: 30px 0px;
   }
 
