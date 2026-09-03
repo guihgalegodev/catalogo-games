@@ -1,6 +1,6 @@
 import { links } from "./links.js";
 export default class MenuMobile {
-  constructor(btnMobile, navMenu, cards) {
+  constructor(btnMobile, navMenu) {
     this.btnMobile = document.getElementById(btnMobile);
     this.navMenu = document.getElementById(navMenu);
 
@@ -21,6 +21,12 @@ export default class MenuMobile {
     }
   }
 
+  closeMenuPopState() {
+    window.addEventListener("popstate", () => {
+      this.navMenu.classList.remove("active");
+    });
+  }
+
   linkCloseMenu() {
     links.forEach((link) => {
       this.events.forEach((event) => {
@@ -39,6 +45,7 @@ export default class MenuMobile {
   init() {
     if (this.btnMobile && this.navMenu) {
       this.addBtnMobileEvents();
+      this.closeMenuPopState();
     }
     return this;
   }

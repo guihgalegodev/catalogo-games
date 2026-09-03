@@ -4,6 +4,7 @@ import CheckWindowMobile from "./check-is-mobile.js";
 import { links } from "./links.js";
 
 export default function initfetchPage() {
+  links[0].classList.add("ativo");
   const initialUrl = window.location.href;
   fetchPage(initialUrl);
 
@@ -12,6 +13,8 @@ export default function initfetchPage() {
     fetchPage(e.target.href);
     window.history.pushState(null, null, e.target.href);
   }
+
+  let currentScrollAnimado = null;
 
   async function fetchPage(url) {
     window.scrollTo({
@@ -22,18 +25,47 @@ export default function initfetchPage() {
     const pageText = await pageResponse.text();
     replaceContent(pageText);
     linkAtivo(url);
-    const scrollAnimado = new ScrollAnimado("[data-anima]");
-    scrollAnimado.init();
+
+    // Se já existir uma instância rodando, remove o eventos de scroll antigo
+    if (currentScrollAnimado) {
+      currentScrollAnimado.stop();
+    }
+
+    //Cria a nova instância
+    currentScrollAnimado = new ScrollAnimado("[data-anima]");
+    currentScrollAnimado.init();
+
+    const images = document.querySelectorAll(".content-fetch img");
+    let loadedImages = 0;
+
+    // Verifica se as imagens já estão baixadas
+    // para pegar o valor correto de offsett
+    if (images.length > 0) {
+      images.forEach((img) => {
+        if (img.complete) {
+          loadedImages++;
+          if (loadedImages === images.length) currentScrollAnimado.getDistance();
+        } else {
+          // Espera as imagens carregarem
+          img.addEventListener("load", () => {
+            loadedImages++;
+            if (loadedImages === images.length) {
+              currentScrollAnimado.getDistance();
+              currentScrollAnimado.checkDistance();
+            }
+          });
+        }
+      });
+    }
 
     if (!pageResponse.url.endsWith("index.html")) {
       const isMobile = 790;
       const mobileWindow = new CheckWindowMobile(isMobile, ".jogo-img");
       mobileWindow.init();
-    }
 
-    const btnDetalhes = document.querySelectorAll(".content-fetch .details");
+      const btnDetalhes = document.querySelectorAll(".content-fetch .details");
 
-    btnDetalhes.forEach((btn) => {
+      btnDetalhes.forEach((btn) => {
       for (let i = 0; i < events.length; i++) {
         btn.addEventListener(events[i], async (e) => {
           if (e.type === "touchstart") e.preventDefault();
@@ -68,9 +100,10 @@ export default function initfetchPage() {
             btn.style.opacity = "1";
             btn.style.pointerEvents = "auto";
           }
-        });
-      }
-    });
+          });
+        }
+      });
+    }
   }
 
   function replaceContent(newText) {
