@@ -13,17 +13,24 @@ export default class MenuMobile {
     if (e.type === "touchstart") e.preventDefault();
     this.navMenu.classList.toggle("active");
     const active = this.navMenu.classList.contains("active");
-    e.currentTarget.setAttribute("aria-expanded", active);
-    if (active) {
-      e.currentTarget.setAttribute("aria-label", "Fechar Menu");
+    if (e.currentTarget.hasAttribute("aria-label")) {
+      e.currentTarget.setAttribute("aria-expanded", active);
+      if (active) {
+        e.currentTarget.setAttribute("aria-label", "Fechar Menu");
+      } else {
+        e.currentTarget.setAttribute("aria-label", "Abrir Menu");
+      }
     } else {
-      e.currentTarget.setAttribute("aria-label", "Abrir Menu");
+      this.btnMobile.setAttribute("aria-expanded", false);
+      this.btnMobile.setAttribute("aria-label", "Abrir Menu");
     }
   }
 
   closeMenuPopState() {
     window.addEventListener("popstate", () => {
       this.navMenu.classList.remove("active");
+      this.btnMobile.setAttribute("aria-expanded", false);
+      this.btnMobile.setAttribute("aria-label", "Abrir Menu");
     });
   }
 

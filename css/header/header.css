@@ -47,6 +47,9 @@
   padding: 10px;
   transition: 0.3s;
 }
+/* #menu a:first-child {
+  color: var(--links-color);
+} */
 
 #menu a::after {
   content: "";
