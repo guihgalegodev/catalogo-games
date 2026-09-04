@@ -124,6 +124,11 @@ export default function initfetchPage() {
   }
 
   window.addEventListener("popstate", () => {
+    if (
+      window.location.href.endsWith("/") &&
+      !window.location.href.includes(".html")
+    )
+      window.location.href += "index.html";
     fetchPage(window.location.href);
   });
 
