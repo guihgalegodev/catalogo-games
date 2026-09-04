@@ -201,102 +201,63 @@ export default class Modal {
     this.btnsDetalhes.forEach((btn) => {
       this.events.forEach((event) => {
         btn.addEventListener(event, (e) => {
-          this.buscarArrayImgs(e);
+          this.salvarBtnDados(e);
         });
       });
     });
   }
 
-  buscarArrayImgs(e) {
+  salvarBtnDados(e) {
     if (e.type === "touchstart") e.preventDefault();
-    console.log(e.type);
-    console.log(this.btnsDetalhes);
-    this.btnsGamesKey = [...this.btnsDetalhes].map((btn) => {
+    this.btnsDados = [...this.btnsDetalhes].map((btn) => {
       return {
         btn,
         gameKey: btn.dataset.game,
       };
     });
-    this.mostrarGameObj();
+    this.mostrarGameObj(e);
   }
 
-  async initFetch() {
+  async initFetch(objBtn) {
     try {
-      btn.style.opacity = "0.5";
-      btn.style.pointerEvents = "none";
+      objBtn.btn.style.opacity = "0.5";
+      objBtn.btn.style.pointerEvents = "none";
       const response = await fetch("./games.json");
       if (!response.ok) {
         throw new Error("Não foi possível carregar os dados dos jogos.");
       }
+
+      const games = await response.json();
+
+      const listaImagens = games[objBtn.gameKey];
+
+      if (listaImagens) {
+        this.abrirModal(listaImagens);
+      } else {
+        throw new Error(
+          `Jogo com a chave "${objBtn.gameKey}" não foi encontrado no arquivo de dados.`,
+        );
+      }
     } catch (error) {
       console.error("Erro:", error);
-      alert("Ocorreu um erro ao carregar as imagens do jogo.");
+      // alert("Ocorreu um erro ao carregar as imagens do jogo.");
     } finally {
-      btn.style.opacity = "1";
-      btn.style.pointerEvents = "auto";
+      objBtn.btn.style.opacity = "1";
+      objBtn.btn.style.pointerEvents = "auto";
     }
   }
 
-  mostrarGameObj() {
-    this.btnsGamesKey.forEach((objBtn) => {
-      const gameKey = objBtn.gameKey;
-      this.initFetch();
-
-      // try {
-      //   btn.style.opacity = "0.5";
-      //   btn.style.pointerEvents = "none";
-      //   const response = await fetch("./games.json");
-      //   if (!response.ok) {
-      //     throw new Error("Não foi possível carregar os dados dos jogos.");
-      //   }
-      //   const games = await response.json();
-      //   const listaImagens = games[gameKey];
-      //   if (listaImagens) {
-      //   abrirModal(listaImagens);
-      //   } else {
-      //     throw new Error(
-      //   `Jogo com a chave "${gameKey}" não foi encontrado no arquivo de dados.`,
-      //     );
-      // }
-
-      // } catch(error) {
-      //   console.error("Erro:", error);
-      //   alert("Ocorreu um erro ao carregar as imagens do jogo.");
-      // } finally {
-      //   btn.style.opacity = "1";
-      //   btn.style.pointerEvents = "auto";
-      // }
+  mostrarGameObj(e) {
+    const btnTargetDataGame = e.currentTarget.dataset.game;
+    this.btnsDados.forEach((objBtn) => {
+      if (objBtn.gameKey === btnTargetDataGame) {
+        this.initFetch(objBtn);
+      }
     });
   }
-  // const gameKey = btn.dataset.game;
-  // try {
-  //   // Desabilita temporariamente o botão e adiciona feedback visual
-  //   btn.style.opacity = "0.5";
-  //   btn.style.pointerEvents = "none";
-  //   const response = await fetch("./games.json");
-  //   if (!response.ok) {
-  //     throw new Error("Não foi possível carregar os dados dos jogos.");
-  //   }
-  //   const games = await response.json();
-  // const listaImagens = games[gameKey];
-  // if (listaImagens) {
-  //   abrirModal(listaImagens);
-  // } else {
-  //   throw new Error(
-  //     `Jogo com a chave "${gameKey}" não foi encontrado no arquivo de dados.`,
-  //   );
-  // }
-  // } catch (error) {
-  //   console.error("Erro:", error);
-  //   alert("Ocorreu um erro ao carregar as imagens do jogo.");
-  // } finally {
-  //   // Restaura o estado original do botão
-  //   btn.style.opacity = "1";
-  //   btn.style.pointerEvents = "auto";
-  // }
 
   bindEvents() {
-    this.buscarArrayImgs = this.buscarArrayImgs.bind(this);
+    this.salvarBtnDados = this.salvarBtnDados.bind(this);
     this.initModalEvents = this.initModalEvents.bind(this);
   }
 
