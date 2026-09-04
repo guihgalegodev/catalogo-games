@@ -1,192 +1,311 @@
-let imagens = [];
-let indexAtual = 0;
+export default class Modal {
+  constructor(btns, modal, modalImg, modalVideo, fechar, btnNext, btnPrev) {
+    this.btnsDetalhes = document.querySelectorAll(btns);
+    this.modal = document.getElementById(modal);
+    this.modalImg = document.getElementById(modalImg);
+    this.modalVideo = document.getElementById(modalVideo);
+    this.fechar = document.querySelector(fechar);
+    this.btnNext = document.querySelector(btnNext);
+    this.btnPrev = document.querySelector(btnPrev);
 
-let escala = 1;
-let posX = 0;
-let posY = 0;
-let isDragging = false;
-let startX = 0;
-let startY = 0;
-let touchStartDistance = 0;
-let touchStartScale = 1;
+    this.imagens = [];
+    this.indexAtual = 0;
+    this.escala = 1;
+    this.posX = 0;
+    this.posY = 0;
+    this.isDragging = false;
+    this.startX = 0;
+    this.startY = 0;
+    this.touchStartDistance = 0;
+    this.touchStartScale = 1;
 
-export const events = ["click", "touchstart"];
-
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
-const modalVideo = document.getElementById("modal-video");
-const fechar = document.querySelector(".fechar");
-const btnNext = document.querySelector(".next");
-const btnPrev = document.querySelector(".prev");
-
-export function abrirModal(listaImagens) {
-  imagens = listaImagens;
-  indexAtual = 0;
-
-  modal.style.display = "flex";
-  atualizarMidia();
-}
-
-// Verifica a extensão do arquivo
-function isVideo(url) {
-  return url.endsWith(".mp4") || url.endsWith(".webm") || url.endsWith(".ogg");
-}
-// Controla a exibição de imagem ou vídeo no modal
-function atualizarMidia() {
-  const midiaAtual = imagens[indexAtual];
-  // Sempre pausa e limpa o vídeo anterior ao trocar de mídia
-  modalVideo.pause();
-  modalVideo.src = "";
-  if (isVideo(midiaAtual)) {
-    // Esconde a imagem, mostra o vídeo
-    modalImg.style.display = "none";
-    modalVideo.style.display = "block";
-    modalVideo.src = midiaAtual;
-    modalVideo.load();
-  } else {
-    // Esconde o vídeo, mostra a imagem
-    modalVideo.style.display = "none";
-    modalImg.style.display = "block";
-    modalImg.src = midiaAtual;
+    this.events = ["touchstart", "click"];
   }
-}
 
-function resetarImagem() {
-  escala = 1;
-  posX = 0;
-  posY = 0;
-  aplicarTransform();
-}
+  abrirModal(listaImagens) {
+    this.imagens = listaImagens;
+    this.indexAtual = 0;
 
-function aplicarTransform() {
-  modalImg.style.transform = `translate(${posX}px, ${posY}px) scale(${escala})`;
-}
+    this.modal.style.display = "flex";
+    this.atualizarMidia();
+  }
 
-export function initModalEvents() {
-  if (!modal || !modalImg) return;
-
-  const isDesktop = window.innerWidth > 768;
-
-  modalImg.addEventListener("wheel", (e) => {
-    if (!isDesktop) return;
-
-    e.preventDefault();
-
-    const zoomSpeed = 0.1;
-
-    if (e.deltaY < 0) {
-      escala += zoomSpeed;
+  // Verifica a extensão do arquivo
+  isVideo(url) {
+    return (
+      url.endsWith(".mp4") || url.endsWith(".webm") || url.endsWith(".ogg")
+    );
+  }
+  // Controla a exibição de imagem ou vídeo no moda
+  atualizarMidia() {
+    const midiaAtual = this.imagens[this.indexAtual];
+    // Sempre pausa e limpa o vídeo anterior ao trocar de mídia
+    this.modalVideo.pause();
+    this.modalVideo.src = "";
+    if (this.isVideo(midiaAtual)) {
+      // Esconde a imagem, mostra o vídeo
+      this.modalImg.style.display = "none";
+      this.modalVideo.style.display = "block";
+      this.modalVideo.src = midiaAtual;
+      this.modalVideo.load();
     } else {
-      escala -= zoomSpeed;
+      // Esconde o vídeo, mostra a imagem
+      this.modalVideo.style.display = "none";
+      this.modalImg.style.display = "block";
+      this.modalImg.src = midiaAtual;
     }
+  }
 
-    if (escala < 1) escala = 1;
-    if (escala > 3) escala = 3;
+  resetarImagem() {
+    this.escala = 1;
+    this.posX = 0;
+    this.posY = 0;
+    this.aplicarTransform();
+  }
 
-    aplicarTransform();
-  });
+  aplicarTransform() {
+    this.modalImg.style.transform = `translate(${this.posX}px, ${this.posY}px) scale(${this.escala})`;
+  }
 
-  modalImg.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    if (escala <= 1) return;
+  initModalEvents() {
+    if (!this.modal || !this.modalImg) return;
 
-    isDragging = true;
-    startX = e.clientX - posX;
-    startY = e.clientY - posY;
+    const isDesktop = window.innerWidth > 768;
 
-    modalImg.style.cursor = "grabbing";
-  });
+    this.modalImg.addEventListener("wheel", (e) => {
+      if (!isDesktop) return;
 
-  window.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
+      e.preventDefault();
 
-    posX = e.clientX - startX;
-    posY = e.clientY - startY;
+      const zoomSpeed = 0.1;
 
-    aplicarTransform();
-  });
-
-  window.addEventListener("mouseup", () => {
-    isDragging = false;
-    modalImg.style.cursor = escala > 1 ? "grab" : "zoom-in";
-  });
-
-  // Eventos de toque para dispositivos móveis (zoom por pinça e arrasto)
-  modalImg.addEventListener("touchstart", (e) => {
-    if (e.touches.length === 1) {
-      if (escala > 1) {
-        isDragging = true;
-        startX = e.touches[0].clientX - posX;
-        startY = e.touches[0].clientY - posY;
+      if (e.deltaY < 0) {
+        this.escala += zoomSpeed;
+      } else {
+        this.escala -= zoomSpeed;
       }
-    } else if (e.touches.length === 2) {
-      isDragging = false;
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      touchStartDistance = Math.hypot(dx, dy);
-      touchStartScale = escala;
-    }
-  });
-
-  window.addEventListener("touchmove", (e) => {
-    if (e.touches.length === 1 && isDragging) {
-      posX = e.touches[0].clientX - startX;
-      posY = e.touches[0].clientY - startY;
-      aplicarTransform();
-    } else if (e.touches.length === 2 && touchStartDistance > 0) {
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      const currentDistance = Math.hypot(dx, dy);
-      const factor = currentDistance / touchStartDistance;
-      escala = touchStartScale * factor;
 
       if (escala < 1) escala = 1;
       if (escala > 3) escala = 3;
 
-      aplicarTransform();
-    }
-  });
+      this.aplicarTransform();
+    });
 
-  window.addEventListener("touchend", (e) => {
-    if (e.touches.length === 0) {
-      isDragging = false;
-      touchStartDistance = 0;
-    } else if (e.touches.length === 1) {
-      if (escala > 1) {
-        isDragging = true;
-        startX = e.touches[0].clientX - posX;
-        startY = e.touches[0].clientY - posY;
+    this.modalImg.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      if (this.escala <= 1) return;
+
+      this.isDragging = true;
+      this.startX = e.clientX - this.posX;
+      this.startY = e.clientY - this.posY;
+
+      this.modalImg.style.cursor = "grabbing";
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!this.isDragging) return;
+
+      this.posX = e.clientX - this.startX;
+      posY = e.clientY - this.startY;
+
+      this.aplicarTransform();
+    });
+
+    window.addEventListener("mouseup", () => {
+      this.isDragging = false;
+      this.modalImg.style.cursor = this.escala > 1 ? "grab" : "zoom-in";
+    });
+
+    // Eventos de toque para dispositivos móveis (zoom por pinça e arrasto)
+    this.modalImg.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) {
+        if (this.escala > 1) {
+          this.isDragging = true;
+          this.startX = e.touches[0].clientX - this.posX;
+          this.startY = e.touches[0].clientY - this.posY;
+        }
+      } else if (e.touches.length === 2) {
+        this.isDragging = false;
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        this.touchStartDistance = Math.hypot(dx, dy);
+        this.touchStartScale = escala;
       }
-      touchStartDistance = 0;
+    });
+
+    window.addEventListener("touchmove", (e) => {
+      if (e.touches.length === 1 && this.isDragging) {
+        this.posX = e.touches[0].clientX - this.startX;
+        this.posY = e.touches[0].clientY - this.startY;
+        this.aplicarTransform();
+      } else if (e.touches.length === 2 && this.touchStartDistance > 0) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const currentDistance = Math.hypot(dx, dy);
+        const factor = currentDistance / this.touchStartDistance;
+        this.escala = this.touchStartScale * factor;
+
+        if (this.escala < 1) this.escala = 1;
+        if (this.escala > 3) this.escala = 3;
+
+        this.aplicarTransform();
+      }
+    });
+
+    window.addEventListener("touchend", (e) => {
+      if (e.touches.length === 0) {
+        this.isDragging = false;
+        this.touchStartDistance = 0;
+      } else if (e.touches.length === 1) {
+        if (this.escala > 1) {
+          this.isDragging = true;
+          this.startX = e.touches[0].clientX - this.posX;
+          this.startY = e.touches[0].clientY - this.posY;
+        }
+        this.touchStartDistance = 0;
+      }
+    });
+
+    window.addEventListener("touchcancel", () => {
+      this.isDragging = false;
+      this.touchStartDistance = 0;
+    });
+
+    this.events.forEach((event) => {
+      this.btnNext.addEventListener(event, (e) => {
+        if (e.type === "touchstart") e.preventDefault();
+        this.indexAtual = (this.indexAtual + 1) % this.imagens.length;
+        this.atualizarMidia();
+        this.resetarImagem();
+      });
+
+      this.btnPrev.addEventListener(event, (e) => {
+        if (e.type === "touchstart") e.preventDefault();
+        this.indexAtual =
+          (this.indexAtual - 1 + this.imagens.length) % this.imagens.length;
+        this.atualizarMidia();
+        this.resetarImagem();
+      });
+
+      this.fechar.addEventListener(event, (e) => {
+        if (e.type === "touchstart") e.preventDefault();
+        this.modal.style.display = "none";
+        this.modalVideo.pause();
+        this.modalVideo.src = "";
+        this.resetarImagem();
+      });
+    });
+  }
+
+  addEventsBtnDetalhe() {
+    this.btnsDetalhes.forEach((btn) => {
+      this.events.forEach((event) => {
+        btn.addEventListener(event, (e) => {
+          this.buscarArrayImgs(e);
+        });
+      });
+    });
+  }
+
+  buscarArrayImgs(e) {
+    if (e.type === "touchstart") e.preventDefault();
+    console.log(e.type);
+    console.log(this.btnsDetalhes);
+    this.btnsGamesKey = [...this.btnsDetalhes].map((btn) => {
+      return {
+        btn,
+        gameKey: btn.dataset.game,
+      };
+    });
+    this.mostrarGameObj();
+  }
+
+  async initFetch() {
+    try {
+      btn.style.opacity = "0.5";
+      btn.style.pointerEvents = "none";
+      const response = await fetch("./games.json");
+      if (!response.ok) {
+        throw new Error("Não foi possível carregar os dados dos jogos.");
+      }
+    } catch (error) {
+      console.error("Erro:", error);
+      alert("Ocorreu um erro ao carregar as imagens do jogo.");
+    } finally {
+      btn.style.opacity = "1";
+      btn.style.pointerEvents = "auto";
     }
-  });
+  }
 
-  window.addEventListener("touchcancel", () => {
-    isDragging = false;
-    touchStartDistance = 0;
-  });
+  mostrarGameObj() {
+    this.btnsGamesKey.forEach((objBtn) => {
+      const gameKey = objBtn.gameKey;
+      this.initFetch();
 
-  for (let i = 0; i < events.length; i++) {
-    btnNext.addEventListener(events[i], (e) => {
-      if (e.type === "touchstart") e.preventDefault();
-      indexAtual = (indexAtual + 1) % imagens.length;
-      atualizarMidia();
-      resetarImagem();
+      // try {
+      //   btn.style.opacity = "0.5";
+      //   btn.style.pointerEvents = "none";
+      //   const response = await fetch("./games.json");
+      //   if (!response.ok) {
+      //     throw new Error("Não foi possível carregar os dados dos jogos.");
+      //   }
+      //   const games = await response.json();
+      //   const listaImagens = games[gameKey];
+      //   if (listaImagens) {
+      //   abrirModal(listaImagens);
+      //   } else {
+      //     throw new Error(
+      //   `Jogo com a chave "${gameKey}" não foi encontrado no arquivo de dados.`,
+      //     );
+      // }
+
+      // } catch(error) {
+      //   console.error("Erro:", error);
+      //   alert("Ocorreu um erro ao carregar as imagens do jogo.");
+      // } finally {
+      //   btn.style.opacity = "1";
+      //   btn.style.pointerEvents = "auto";
+      // }
     });
+  }
+  // const gameKey = btn.dataset.game;
+  // try {
+  //   // Desabilita temporariamente o botão e adiciona feedback visual
+  //   btn.style.opacity = "0.5";
+  //   btn.style.pointerEvents = "none";
+  //   const response = await fetch("./games.json");
+  //   if (!response.ok) {
+  //     throw new Error("Não foi possível carregar os dados dos jogos.");
+  //   }
+  //   const games = await response.json();
+  // const listaImagens = games[gameKey];
+  // if (listaImagens) {
+  //   abrirModal(listaImagens);
+  // } else {
+  //   throw new Error(
+  //     `Jogo com a chave "${gameKey}" não foi encontrado no arquivo de dados.`,
+  //   );
+  // }
+  // } catch (error) {
+  //   console.error("Erro:", error);
+  //   alert("Ocorreu um erro ao carregar as imagens do jogo.");
+  // } finally {
+  //   // Restaura o estado original do botão
+  //   btn.style.opacity = "1";
+  //   btn.style.pointerEvents = "auto";
+  // }
 
-    btnPrev.addEventListener(events[i], (e) => {
-      if (e.type === "touchstart") e.preventDefault();
-      indexAtual = (indexAtual - 1 + imagens.length) % imagens.length;
-      atualizarMidia();
-      resetarImagem();
-    });
+  bindEvents() {
+    this.buscarArrayImgs = this.buscarArrayImgs.bind(this);
+    this.initModalEvents = this.initModalEvents.bind(this);
+  }
 
-    fechar.addEventListener(events[i], (e) => {
-      if (e.type === "touchstart") e.preventDefault();
-      modal.style.display = "none";
-      modalVideo.pause();
-      modalVideo.src = "";
-      resetarImagem();
-    });
+  init() {
+    if (this.btnsDetalhes.length) {
+      this.addEventsBtnDetalhe();
+      this.initModalEvents();
+      this.bindEvents();
+    }
+    return this;
   }
 }
