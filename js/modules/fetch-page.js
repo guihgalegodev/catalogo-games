@@ -1,10 +1,11 @@
-import { abrirModal, initModalEvents, events } from "./modal.js";
+import Modal from "./modal.js";
 import ScrollAnimado from "./scroll-animado.js";
 import CheckWindowMobile from "./check-is-mobile.js";
 import { links } from "./links.js";
 
 export default function initfetchPage() {
   let initialUrl = window.location.href;
+  const events = ["touchstart", "click"];
 
   if (initialUrl.endsWith("/") && !initialUrl.includes(".html")) {
     initialUrl += "index.html";
@@ -63,53 +64,27 @@ export default function initfetchPage() {
       });
     }
 
-    if (!pageResponse.url.endsWith("index.html")) {
+    if (!url.endsWith("index.html")) {
       const isMobile = 790;
       const mobileWindow = new CheckWindowMobile(isMobile, ".jogo-img");
       mobileWindow.init();
 
-      const btnDetalhes = document.querySelectorAll(".content-fetch .details");
+      // const modalElement = document.createElement("div");
+      // modalElement.setAttribute("id", "modal");
+      // modalElement.classList.add("modal");
 
-      btnDetalhes.forEach((btn) => {
-        for (let i = 0; i < events.length; i++) {
-          btn.addEventListener(events[i], async (e) => {
-            if (e.type === "touchstart") e.preventDefault();
-            const gameKey = btn.dataset.game;
+      // console.log(modalElement);
 
-            try {
-              // Desabilita temporariamente o botão e adiciona feedback visual
-              btn.style.opacity = "0.5";
-              btn.style.pointerEvents = "none";
-
-              const response = await fetch("./games.json");
-              if (!response.ok) {
-                throw new Error(
-                  "Não foi possível carregar os dados dos jogos.",
-                );
-              }
-
-              const games = await response.json();
-
-              const listaImagens = games[gameKey];
-
-              if (listaImagens) {
-                abrirModal(listaImagens);
-              } else {
-                throw new Error(
-                  `Jogo com a chave "${gameKey}" não foi encontrado no arquivo de dados.`,
-                );
-              }
-            } catch (error) {
-              console.error("Erro:", error);
-              alert("Ocorreu um erro ao carregar as imagens do jogo.");
-            } finally {
-              // Restaura o estado original do botão
-              btn.style.opacity = "1";
-              btn.style.pointerEvents = "auto";
-            }
-          });
-        }
-      });
+      const modalProdutcs = new Modal(
+        ".content-fetch .details",
+        "modal",
+        "modal-img",
+        "modal-video",
+        ".fechar",
+        ".next",
+        ".prev",
+      );
+      modalProdutcs.init();
     }
   }
 
@@ -137,7 +112,6 @@ export default function initfetchPage() {
       link.addEventListener(event, handleClick);
     });
   });
-  initModalEvents();
 }
 
 function linkAtivo(urlAtual) {
