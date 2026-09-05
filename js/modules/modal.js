@@ -20,6 +20,7 @@ export default class Modal {
     this.touchStartScale = 1;
 
     this.events = ["touchstart", "click"];
+    this.isDesktop = window.innerWidth > 768;
   }
 
   abrirModal(listaImagens) {
@@ -70,106 +71,40 @@ export default class Modal {
   initModalEvents() {
     if (!this.modal || !this.modalImg) return;
 
-    const isDesktop = window.innerWidth > 768;
-
     this.modalImg.addEventListener("wheel", (e) => {
-      if (!isDesktop) return;
-
-      e.preventDefault();
-
-      const zoomSpeed = 0.1;
-
-      if (e.deltaY < 0) {
-        this.escala += zoomSpeed;
-      } else {
-        this.escala -= zoomSpeed;
-      }
-
-      if (escala < 1) escala = 1;
-      if (escala > 3) escala = 3;
-
-      this.aplicarTransform();
+      this.wheelZoomEvent(e);
     });
 
     this.modalImg.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      if (this.escala <= 1) return;
-
-      this.isDragging = true;
-      this.startX = e.clientX - this.posX;
-      this.startY = e.clientY - this.posY;
-
-      this.modalImg.style.cursor = "grabbing";
+      this.mouseDownEvent(e);
     });
 
     window.addEventListener("mousemove", (e) => {
-      if (!this.isDragging) return;
-
-      this.posX = e.clientX - this.startX;
-      posY = e.clientY - this.startY;
-
-      this.aplicarTransform();
+      this.mouseMoveEvent(e);
     });
 
     window.addEventListener("mouseup", () => {
-      this.isDragging = false;
-      this.modalImg.style.cursor = this.escala > 1 ? "grab" : "zoom-in";
+      this.mouseUpEvent();
     });
 
     // Eventos de toque para dispositivos móveis (zoom por pinça e arrasto)
     this.modalImg.addEventListener("touchstart", (e) => {
-      if (e.touches.length === 1) {
-        if (this.escala > 1) {
-          this.isDragging = true;
-          this.startX = e.touches[0].clientX - this.posX;
-          this.startY = e.touches[0].clientY - this.posY;
-        }
-      } else if (e.touches.length === 2) {
-        this.isDragging = false;
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        this.touchStartDistance = Math.hypot(dx, dy);
-        this.touchStartScale = escala;
-      }
+      this.touchstartEvent(e);
     });
 
     window.addEventListener("touchmove", (e) => {
-      if (e.touches.length === 1 && this.isDragging) {
-        this.posX = e.touches[0].clientX - this.startX;
-        this.posY = e.touches[0].clientY - this.startY;
-        this.aplicarTransform();
-      } else if (e.touches.length === 2 && this.touchStartDistance > 0) {
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        const currentDistance = Math.hypot(dx, dy);
-        const factor = currentDistance / this.touchStartDistance;
-        this.escala = this.touchStartScale * factor;
-
-        if (this.escala < 1) this.escala = 1;
-        if (this.escala > 3) this.escala = 3;
-
-        this.aplicarTransform();
-      }
+      this.touchMoveEvent(e);
     });
 
     window.addEventListener("touchend", (e) => {
-      if (e.touches.length === 0) {
-        this.isDragging = false;
-        this.touchStartDistance = 0;
-      } else if (e.touches.length === 1) {
-        if (this.escala > 1) {
-          this.isDragging = true;
-          this.startX = e.touches[0].clientX - this.posX;
-          this.startY = e.touches[0].clientY - this.posY;
-        }
-        this.touchStartDistance = 0;
-      }
+      this.touchEndEvent(e);
     });
 
     window.addEventListener("touchcancel", () => {
-      this.isDragging = false;
-      this.touchStartDistance = 0;
+      this.touchCancelEvent();
     });
+
+    // <--- fim eventos modal no mobile --->
 
     this.events.forEach((event) => {
       this.btnNext.addEventListener(event, (e) => {
@@ -197,6 +132,107 @@ export default class Modal {
     });
   }
 
+  wheelZoomEvent(e) {
+    if (!this.isDesktop) return;
+
+    e.preventDefault();
+
+    const zoomSpeed = 0.1;
+
+    if (e.deltaY < 0) {
+      this.escala += zoomSpeed;
+    } else {
+      this.escala -= zoomSpeed;
+    }
+
+    if (this.escala < 1) this.escala = 1;
+    if (this.escala > 3) this.escala = 3;
+
+    this.aplicarTransform();
+  }
+
+  mouseDownEvent(e) {
+    e.preventDefault();
+
+    if (this.escala <= 1) return;
+
+    this.isDragging = true;
+    this.startX = e.clientX - this.posX;
+    this.startY = e.clientY - this.posY;
+
+    this.modalImg.style.cursor = "grabbing";
+  }
+
+  mouseMoveEvent(e) {
+    if (!this.isDragging) return;
+
+    this.posX = e.clientX - this.startX;
+    this.posY = e.clientY - this.startY;
+
+    this.aplicarTransform();
+  }
+
+  mouseUpEvent() {
+    this.isDragging = false;
+    this.modalImg.style.cursor = this.escala > 1 ? "grab" : "zoom-in";
+  }
+
+  // Eventos mobile do modal
+
+  touchstartEvent(e) {
+    if (e.touches.length === 1) {
+      if (this.escala > 1) {
+        this.isDragging = true;
+        this.startX = e.touches[0].clientX - this.posX;
+        this.startY = e.touches[0].clientY - this.posY;
+      }
+    } else if (e.touches.length === 2) {
+      this.isDragging = false;
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      this.touchStartDistance = Math.hypot(dx, dy);
+      this.touchStartScale = this.escala;
+    }
+  }
+
+  touchMoveEvent(e) {
+    if (e.touches.length === 1 && this.isDragging) {
+      this.posX = e.touches[0].clientX - this.startX;
+      this.posY = e.touches[0].clientY - this.startY;
+      this.aplicarTransform();
+    } else if (e.touches.length === 2 && this.touchStartDistance > 0) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const currentDistance = Math.hypot(dx, dy);
+      const factor = currentDistance / this.touchStartDistance;
+      this.escala = this.touchStartScale * factor;
+
+      if (this.escala < 1) this.escala = 1;
+      if (this.escala > 3) this.escala = 3;
+
+      this.aplicarTransform();
+    }
+  }
+
+  touchEndEvent(e) {
+    if (e.touches.length === 0) {
+      this.isDragging = false;
+      this.touchStartDistance = 0;
+    } else if (e.touches.length === 1) {
+      if (this.escala > 1) {
+        this.isDragging = true;
+        this.startX = e.touches[0].clientX - this.posX;
+        this.startY = e.touches[0].clientY - this.posY;
+      }
+      this.touchStartDistance = 0;
+    }
+  }
+
+  touchCancelEvent() {
+    this.isDragging = false;
+    this.touchStartDistance = 0;
+  }
+
   addEventsBtnDetalhe() {
     this.btnsDetalhes.forEach((btn) => {
       this.events.forEach((event) => {
@@ -215,7 +251,7 @@ export default class Modal {
         gameKey: btn.dataset.game,
       };
     });
-    this.mostrarGameObj(e);
+    this.getGame(e);
   }
 
   async initFetch(objBtn) {
@@ -240,14 +276,14 @@ export default class Modal {
       }
     } catch (error) {
       console.error("Erro:", error);
-      // alert("Ocorreu um erro ao carregar as imagens do jogo.");
+      alert("Ocorreu um erro ao carregar as imagens do jogo.");
     } finally {
       objBtn.btn.style.opacity = "1";
       objBtn.btn.style.pointerEvents = "auto";
     }
   }
 
-  mostrarGameObj(e) {
+  getGame(e) {
     const btnTargetDataGame = e.currentTarget.dataset.game;
     this.btnsDados.forEach((objBtn) => {
       if (objBtn.gameKey === btnTargetDataGame) {
