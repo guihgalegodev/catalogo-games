@@ -94,3 +94,80 @@
 .sh {
   color: #ea501f;
 }
+
+/* BANNER */
+
+.banner-wrapper {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-content: center;
+  justify-items: center;
+  gap: 10px;
+  margin: 120px 0px;
+  opacity: 0;
+}
+
+.banner-wrapper.ativo.down {
+  opacity: 1;
+  animation: showDown 0.7s forwards;
+}
+
+.banner {
+  height: 450px;
+  display: flex;
+  overflow-x: hidden;
+}
+
+.banner img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.controls {
+  /* background: green; */
+  /* width: 100%; */
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.controls li {
+  width: 13px;
+  height: 13px;
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--links-color);
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.controls li.active {
+  background: var(--links-color);
+}
+
+@media (max-width: 700px) {
+  .banner {
+    max-width: 600px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .banner-wrapper {
+    margin: 60px 0px;
+  }
+
+  .banner {
+    max-width: 450px;
+    height: 200px;
+  }
+
+  .controls li {
+    width: 5px;
+    height: 5px;
+    padding: 5px;
+  }
+}

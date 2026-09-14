@@ -1,6 +1,7 @@
 import Modal from "./modal.js";
 import ScrollAnimado from "./scroll-animado.js";
 import CheckWindowMobile from "./check-is-mobile.js";
+import Banner from "./banner.js";
 import { links } from "./links.js";
 
 export default function initfetchPage() {
@@ -20,6 +21,7 @@ export default function initfetchPage() {
   }
 
   let currentScrollAnimado = null;
+  let currentBanner = null;
 
   async function fetchPage(url) {
     window.scrollTo({
@@ -63,6 +65,13 @@ export default function initfetchPage() {
         }
       });
     }
+
+    if (currentBanner) {
+      currentBanner.stopAutoSlide();
+    }
+
+    currentBanner = new Banner(".banner", ".controls li", url);
+    currentBanner.init();
 
     if (!url.endsWith("index.html")) {
       const isMobile = 790;
