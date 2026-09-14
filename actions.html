@@ -85,8 +85,16 @@
             </div>
           </div>
         </div>
-
       </main>
+      <div id="modal" class="modal">
+        <span class="fechar">&times;</span>
+        <img class="modal-img" id="modal-img" style="display: block;" />
+        <!-- Novo Elemento de Vídeo -->
+        <video class="modal-video" id="modal-video" controls style="display: none; max-width: 90%; max-height: 90%;"></video>
+
+        <button class="prev">&#10094</button>
+        <button class="next">&#10095</button>
+      </div>
     </div>
 
     <footer>
@@ -94,16 +102,6 @@
         <p>@Todos os direitos reservados</p>
       </div>
     </footer>
-  </div>
-
-  <div id="modal" class="modal">
-    <span class="fechar">&times;</span>
-    <img class="modal-img" id="modal-img" style="display: block;" />
-    <!-- Novo Elemento de Vídeo -->
-    <video class="modal-video" id="modal-video" controls style="display: none; max-width: 90%; max-height: 90%;"></video>
-
-    <button class="prev">&#10094</button>
-    <button class="next">&#10095</button>
   </div>
 
   <script type="module" src="./js/script.js"></script>

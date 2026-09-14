@@ -82,7 +82,9 @@
   font-size: 18px;
   width: 150px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: space-between; */
   letter-spacing: 1px;
 }
 
