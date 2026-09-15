@@ -22,14 +22,14 @@ export default class Banner {
 
     /* Explicação aqui:
        Este bloco é responsável por localizar e selecionar todas as imagens (<img>) do banner e armazená-las em um Array (`this.bannerImgs`):
-       
+
        1. Verificação do Banner (`if (this.banner)`):
           - Verifica se o elemento do banner foi encontrado no DOM.
           - Tenta buscar as imagens diretamente dentro dele (`this.banner.querySelectorAll("img")`) e as converte para Array.
-       
+       ---
        2. Tratamento para Container Wrapper (Fallback):
           - Se nenhuma imagem for encontrada e o elemento selecionado for o container principal (`.banner-wrapper`), busca a div interna `.banner` e captura as imagens localizadas nela.
-       
+       ---
        3. Prevenção de Erros (`else`):
           - Se o elemento do banner não existir no DOM, inicializa `this.bannerImgs` como um Array vazio (`[]`), prevenindo erros ao tentar manipular `undefined`.
     */
@@ -49,12 +49,12 @@ export default class Banner {
   }
   /* Explicação aqui:
      O trecho de código acima realiza a validação, normalização e inicialização das propriedades dos controles do banner:
-     
+     ---
      1. Trata o parâmetro 'controls':
         - Se for uma string (ex: ".controls li"), busca no DOM com `querySelectorAll` e converte o resultado em uma Array.
         - Se já for uma NodeList ou Array de elementos DOM, apenas garante a conversão para Array em `this.controls`.
         - Se nada for informado ou for um tipo inválido, busca por padrão os elementos ".controls li".
-     
+     ---
      2. Define as propriedades iniciais do banner:
         - `this.activeClass = "active"`: Guarda o nome da classe CSS utilizada para destacar o controle da imagem atual.
         - `this.currentIndex = 0`: Define o índice inicial apontando para a primeira imagem (slide 0).
