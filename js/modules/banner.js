@@ -2,13 +2,11 @@ export default class Banner {
   constructor(banner, controls, urlAtual) {
     this.banner = document.querySelector(banner);
     this.urlAtual = urlAtual;
-    // console.log(this.banner);
 
     // Explicação bloco abaixo
 
     if (this.banner) {
       this.bannerImgs = Array.from(this.banner.querySelectorAll("img"));
-      // console.log(this.bannerImgs);
       if (
         this.bannerImgs.length === 0 &&
         this.banner.classList.contains("banner-wrapper")
@@ -48,8 +46,6 @@ export default class Banner {
 
     this.activeClass = "active";
     this.currentIndex = 0;
-
-    //  this.timer = this.timer.bind(this)
   }
   /* Explicação aqui:
      O trecho de código acima realiza a validação, normalização e inicialização das propriedades dos controles do banner:
@@ -67,11 +63,9 @@ export default class Banner {
   changeImage(index) {
     if (!this.bannerImgs.length) return;
     this.currentIndex = index;
-    // console.log(this.currentIndex);
 
     // Desloca cada imagem para realizar a troca suave via CSS transform
     this.bannerImgs.forEach((img) => {
-      console.log(img);
       img.style.transform = `translateX(-${index * 100}%)`;
     });
 
@@ -81,7 +75,6 @@ export default class Banner {
   updateControls(activeIndex) {
     if (!this.controls.length) return;
     this.controls.forEach((control, index) => {
-      // console.log(control);
       if (index === activeIndex) {
         control.classList.add(this.activeClass);
       } else {
@@ -92,7 +85,6 @@ export default class Banner {
 
   nextImage() {
     const nextIndex = (this.currentIndex + 1) % this.bannerImgs.length;
-    // console.log(nextIndex);
     this.changeImage(nextIndex);
   }
 
@@ -123,7 +115,7 @@ export default class Banner {
   }
 
   init() {
-    this.updatePage(this.urlAtual)
+    this.updatePage(this.urlAtual);
     return this;
   }
 }

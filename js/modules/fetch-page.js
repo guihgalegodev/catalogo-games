@@ -78,12 +78,6 @@ export default function initfetchPage() {
       const mobileWindow = new CheckWindowMobile(isMobile, ".jogo-img");
       mobileWindow.init();
 
-      // const modalElement = document.createElement("div");
-      // modalElement.setAttribute("id", "modal");
-      // modalElement.classList.add("modal");
-
-      // console.log(modalElement);
-
       const modalProdutcs = new Modal(
         ".content-fetch .details",
         "modal",
