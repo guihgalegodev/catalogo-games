@@ -29,8 +29,8 @@
   top: 20px;
   right: 30px;
   font-size: 40px;
-  color: var(--links-color);
-  background: #d4d4d4;
+  color: red;
+  background: var(--cinza);
   padding: 0px 10px;
   border-radius: 50%;
   z-index: 999;
@@ -42,7 +42,7 @@
   position: absolute;
   top: 50%;
   font-size: 40px;
-  color: var(--links-color);
+  color: var(--green);
   background: none;
   padding: 5px 15px;
   border: none;

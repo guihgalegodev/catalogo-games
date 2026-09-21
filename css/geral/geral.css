@@ -1,10 +1,8 @@
 :root {
-  --gradiente-gta5: linear-gradient(90deg, #ec43a6 0%, #345ed3 100%);
-
   --cinza: #dadada;
   --branco: #e2e2e2;
   --preto: #191918;
-  --links-color: #345ed3;
+  --green: #4bfa18;
 }
 
 * {
@@ -35,22 +33,9 @@ a {
   text-align: center;
 }
 
-.press-start-2p-regular {
-  font-family: "Press Start 2P", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
 .container {
   max-width: 1180px;
   margin: 30px auto;
-}
-
-.hub {
-  background: var(--gradiente-gta5);
-  color: #000;
-  padding: 10px;
-  border-radius: 4px;
 }
 
 #box-title {
@@ -59,14 +44,8 @@ a {
   justify-content: center;
   text-align: center;
   padding: 20px;
-  /* border: 2px solid #fff; */
   border-radius: 40px;
   margin-bottom: 10px;
-}
-
-#box-title h1 {
-  margin: 0;
-  font-size: 2.5rem;
 }
 
 .wrapper {
