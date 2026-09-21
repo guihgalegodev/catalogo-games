@@ -4,27 +4,13 @@
   }
 }
 
-@media (max-width: 980px) {
-  #box-title h1 {
-    font-size: 2rem;
-  }
-}
-
 @media (max-width: 790px) {
   .header {
     padding: 15px 0px;
   }
 
-  .logo span {
-    font-size: 0.95rem;
-  }
-
-  #box-title h1 {
-    font-size: 1.75rem;
-  }
-
   .intro .sub-title {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-bottom: 40px;
   }
 
@@ -43,8 +29,8 @@
   }
 
   .intro img {
-    max-width: 80%;
-    height: 200px;
+    width: 250px;
+    height: 250px;
   }
 
   #btn-mobile {
@@ -58,7 +44,7 @@
     position: absolute;
     z-index: 9;
     left: 0px;
-    top: 70px;
+    top: 80px;
     width: 100%;
     padding-top: 10px;
     height: 0px;
@@ -102,12 +88,18 @@
     padding: 10px 0px;
   }
 
-  .logo span {
-    font-size: 0.85rem;
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .intro img {
+    width: 180px;
+    height: 180px;
   }
 
   .intro .sub-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
     line-height: 25px;
   }
@@ -115,10 +107,6 @@
   .infos p {
     font-size: 1rem;
     line-height: 1.3rem;
-  }
-
-  #menu {
-    top: 60px;
   }
 
   #menu li {
@@ -170,7 +158,7 @@
   }
 
   #menu {
-    top: 57px;
+    top: 75px;
   }
 
   #box-title {

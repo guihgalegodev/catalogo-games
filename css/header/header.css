@@ -17,19 +17,8 @@
   align-items: center;
 }
 
-.logo {
-  padding: 10px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.logo span {
-  font-size: 1.25rem;
-  padding: 5px;
-  margin: 0;
+.logo img {
+  border-radius: 50%;
 }
 
 #menu {
@@ -51,12 +40,12 @@
   display: block;
   width: 0;
   height: 3px;
-  background: var(--links-color);
+  background: var(--green);
   transition: 0.3s;
 }
 
 #menu a:hover {
-  color: var(--links-color);
+  color: var(--green);
 }
 
 #menu a:hover::after {
@@ -68,7 +57,7 @@
 }
 
 #menu a.ativo {
-  color: var(--links-color);
+  color: var(--green);
 }
 
 #btn-mobile {
