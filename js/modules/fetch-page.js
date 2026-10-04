@@ -2,6 +2,7 @@ import Modal from "./modal.js";
 import ScrollAnimado from "./scroll-animado.js";
 import CheckWindowMobile from "./check-is-mobile.js";
 import Banner from "./banner.js";
+import DropdownMenu from "./dropdown-menu.js";
 import { links } from "./links.js";
 
 export default function initfetchPage() {
@@ -11,6 +12,10 @@ export default function initfetchPage() {
   if (initialUrl.endsWith("/") && !initialUrl.includes(".html")) {
     initialUrl += "index.html";
   }
+
+  const linkDrop = new DropdownMenu("[data-dropdown]");
+  linkDrop.init();
+  // console.log(linkActiveDropdown);
 
   fetchPage(initialUrl);
 
