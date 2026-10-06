@@ -5,45 +5,64 @@
     "assets/img/gta-iv-gameplay-2.jpg",
     "assets/videos/zabuza-horizontal-vd.mp4"
   ],
+
   "game2-ps3": [
     "assets/img/gta-5-otm.jpg",
     "assets/img/gta-iv-gameplay.jpg",
     "assets/img/gta-iv-gameplay-2.jpg",
     "assets/videos/zabuza-vertical-vd.mp4"
   ],
+
   "game3-ps3": [
     "assets/img/naruto-2-otm.jpg",
     "assets/img/naruto-2-gameplay.jpg",
     "assets/img/gta-iv-gameplay-2.jpg",
     "assets/videos/zabuza-vd.mp4"
   ],
+
   "game4-ps3": [
     "assets/img/mvc-otm.jpg",
     "assets/img/gta-iv-gameplay.jpg",
     "assets/img/gta-iv-gameplay-2.jpg",
     "assets/videos/zabuza-vd.mp4"
   ],
+
   "game1-ps2": [
     "assets/img/onimusha-2-foto-1.jpg",
     "assets/img/onimusha-2-foto-2.jpg",
     "assets/img/onimusha-2-foto-3.jpg"
   ],
+
   "game2-ps2": [
     "assets/img/splinter-cell-foto-1.jpg",
     "assets/img/splinter-cell-foto-2.jpg",
     "assets/img/splinter-cell-foto-3.jpg"
   ],
+
+  "game3-ps2": [
+    "assets/img/megaman-x-collection-foto-1.jpg",
+    "assets/img/megaman-x-collection-foto-2.jpg"
+  ],
+
+  "game4-ps2": [
+    "assets/img/star-wars-foto-1.jpg",
+    "assets/img/star-wars-foto-2.jpg",
+    "assets/img/star-wars-foto-3.jpg"
+  ],
+
   "game1-ps4": [
     "assets/img/metal-gear-v-foto-1.jpg",
     "assets/img/metal-gear-v-foto-2.jpg",
     "assets/img/metal-gear-v-foto-3.jpg"
   ],
+
   "game1-ps5": [
     "assets/img/gow-rag-foto-1.jpg",
     "assets/img/gow-rag-foto-2.jpg",
     "assets/img/gow-rag-foto-3.jpg",
     "assets/img/gow-rag-foto-4.jpg"
   ],
+
   "game2-ps5": [
     "assets/img/horizon-foto-1.jpg",
     "assets/img/horizon-foto-3.jpg"
