@@ -23,6 +23,14 @@
     "assets/img/gta-iv-gameplay-2.jpg",
     "assets/videos/zabuza-vd.mp4"
   ],
-  "game1-ps2": ["assets/img/mvc-otm.jpg", "assets/img/gta-iv-gameplay.jpg"],
-  "game2-ps2": ["assets/img/naruto-2-otm.jpg", "assets/img/gta-iv-gameplay.jpg"]
+  "game1-ps2": [
+    "assets/img/onimusha-2-foto-1.jpg",
+    "assets/img/onimusha-2-foto-2.jpg",
+    "assets/img/onimusha-2-foto-3.jpg"
+  ],
+  "game2-ps2": [
+    "assets/img/splinter-cell-foto-1.jpg",
+    "assets/img/splinter-cell-foto-2.jpg",
+    "assets/img/splinter-cell-foto-3.jpg"
+  ]
 }
