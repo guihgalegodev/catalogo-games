@@ -1,6 +1,6 @@
 .header-bg {
   padding: 0px 10px;
-  background: var(--preto);
+  background: #000;
   position: fixed;
   top: 0;
   width: 100%;
@@ -28,6 +28,7 @@
 
 #menu a {
   font-size: 1.2rem;
+  /* background: red; */
   font-family: Arial, Helvetica, sans-serif;
   color: var(--branco);
   width: max-content;

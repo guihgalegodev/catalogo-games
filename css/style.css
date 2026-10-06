@@ -1,5 +1,6 @@
 @import "./geral/geral.css";
 @import "./header/header.css";
+@import "./header/dropdown-menu.css";
 @import "./main-content/produtos.css";
 @import "./main-content/home.css";
 @import "./footer/footer.css";
