@@ -32,5 +32,20 @@
     "assets/img/splinter-cell-foto-1.jpg",
     "assets/img/splinter-cell-foto-2.jpg",
     "assets/img/splinter-cell-foto-3.jpg"
+  ],
+  "game1-ps4": [
+    "assets/img/metal-gear-v-foto-1.jpg",
+    "assets/img/metal-gear-v-foto-2.jpg",
+    "assets/img/metal-gear-v-foto-3.jpg"
+  ],
+  "game1-ps5": [
+    "assets/img/gow-rag-foto-1.jpg",
+    "assets/img/gow-rag-foto-2.jpg",
+    "assets/img/gow-rag-foto-3.jpg",
+    "assets/img/gow-rag-foto-4.jpg"
+  ],
+  "game2-ps5": [
+    "assets/img/horizon-foto-1.jpg",
+    "assets/img/horizon-foto-3.jpg"
   ]
 }
