@@ -112,7 +112,7 @@
 }
 
 .banner {
-  height: 450px;
+  height: 615px;
   display: flex;
   overflow-x: hidden;
 }
@@ -152,6 +152,12 @@
     max-width: 600px;
     height: 300px;
   }
+
+  .controls li {
+    width: 5px;
+    height: 5px;
+    padding: 5px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -162,11 +168,5 @@
   .banner {
     max-width: 450px;
     height: 200px;
-  }
-
-  .controls li {
-    width: 5px;
-    height: 5px;
-    padding: 5px;
   }
 }
