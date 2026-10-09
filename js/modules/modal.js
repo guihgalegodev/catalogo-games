@@ -3,7 +3,6 @@ export default class Modal {
     this.btnsDetalhes = document.querySelectorAll(btns);
     this.modal = document.getElementById(modal);
     this.modalImg = document.getElementById(modalImg);
-    this.modalVideo = document.getElementById(modalVideo);
     this.fechar = document.querySelector(fechar);
     this.btnNext = document.querySelector(btnNext);
     this.btnPrev = document.querySelector(btnPrev);
@@ -31,30 +30,10 @@ export default class Modal {
     this.atualizarMidia();
   }
 
-  // Verifica a extensão do arquivo
-  isVideo(url) {
-    return (
-      url.endsWith(".mp4") || url.endsWith(".webm") || url.endsWith(".ogg")
-    );
-  }
-  // Controla a exibição de imagem ou vídeo no moda
   atualizarMidia() {
     const midiaAtual = this.imagens[this.indexAtual];
-    // Sempre pausa e limpa o vídeo anterior ao trocar de mídia
-    this.modalVideo.pause();
-    this.modalVideo.src = "";
-    if (this.isVideo(midiaAtual)) {
-      // Esconde a imagem, mostra o vídeo
-      this.modalImg.style.display = "none";
-      this.modalVideo.style.display = "block";
-      this.modalVideo.src = midiaAtual;
-      this.modalVideo.load();
-    } else {
-      // Esconde o vídeo, mostra a imagem
-      this.modalVideo.style.display = "none";
-      this.modalImg.style.display = "block";
-      this.modalImg.src = midiaAtual;
-    }
+    this.modalImg.style.display = "block";
+    this.modalImg.src = midiaAtual;
   }
 
   resetarImagem() {
@@ -125,8 +104,6 @@ export default class Modal {
       this.fechar.addEventListener(event, (e) => {
         if (e.type === "touchstart") e.preventDefault();
         this.modal.style.display = "none";
-        this.modalVideo.pause();
-        this.modalVideo.src = "";
         this.resetarImagem();
       });
     });
