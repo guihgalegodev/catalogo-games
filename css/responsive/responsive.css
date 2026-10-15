@@ -190,8 +190,11 @@
   }
 
   .overlay .estados {
-    font-size: 0.85rem;
-    justify-content: space-around;
+    font-size: 1rem;
+  }
+
+  .cib-loose {
+    font-size: 0.75rem;
   }
 
   .jogo-img img {

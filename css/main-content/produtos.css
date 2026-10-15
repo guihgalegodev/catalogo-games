@@ -77,15 +77,22 @@
   transition: opacity 0.3s ease;
 }
 
-.overlay .estados {
+.overlay .estados,
+.cib-loose {
   color: #fff;
   font-weight: bold;
-  font-size: 18px;
+  text-align: center;
+  font-size: 1.2rem;
   width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  letter-spacing: 1px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.cib-loose {
+  display: block;
+  font-size: 14px;
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 6px;
 }
 
 @media (min-width: 791px) and (hover: hover) {

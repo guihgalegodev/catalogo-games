@@ -69,6 +69,19 @@ export default function initfetchPage() {
           });
         }
       });
+
+      const cibOrLosse = document.querySelectorAll(".cib-loose");
+
+      cibOrLosse.forEach((item) => {
+        if (item.innerText === "CIB") {
+          item.style.color = "#3ec514";
+          item.style.border = "2px, solid, #3ec514";
+        }
+        if (item.innerText === "SM") {
+          item.style.color = "#c5ba1d";
+          item.style.border = "2px, solid, #c5ba1d";
+        }
+      });
     }
 
     if (currentBanner) {
