@@ -27,6 +27,7 @@ export default class Modal {
     this.indexAtual = 0;
 
     this.modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
     this.atualizarMidia();
   }
 
@@ -104,6 +105,7 @@ export default class Modal {
       this.fechar.addEventListener(event, (e) => {
         if (e.type === "touchstart") e.preventDefault();
         this.modal.style.display = "none";
+        document.body.style.overflow = "";
         this.resetarImagem();
       });
     });

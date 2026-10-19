@@ -9,13 +9,13 @@ export default function initfetchPage() {
   let initialUrl = window.location.href;
   const events = ["touchstart", "click"];
 
+
   if (initialUrl.endsWith("/") && !initialUrl.includes(".html")) {
     initialUrl += "index.html";
   }
 
   const linkDrop = new DropdownMenu("[data-dropdown]");
   linkDrop.init();
-  // console.log(linkActiveDropdown);
 
   fetchPage(initialUrl);
 
