@@ -58,7 +58,7 @@
   }
 
   #nav-menu.active #menu {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 130px);
     visibility: visible;
     overflow-y: auto;
   }
