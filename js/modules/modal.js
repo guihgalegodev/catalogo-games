@@ -1,5 +1,5 @@
 export default class Modal {
-  constructor(btns, modal, modalImg, modalVideo, fechar, btnNext, btnPrev) {
+  constructor(btns, modal, modalImg, fechar, btnNext, btnPrev) {
     this.btnsDetalhes = document.querySelectorAll(btns);
     this.modal = document.getElementById(modal);
     this.modalImg = document.getElementById(modalImg);
@@ -19,7 +19,10 @@ export default class Modal {
     this.touchStartScale = 1;
 
     this.events = ["touchstart", "click"];
-    this.isDesktop = window.innerWidth > 768;
+  }
+
+  get isDesktop() {
+    return window.innerWidth > 768;
   }
 
   abrirModal(listaImagens) {
@@ -41,7 +44,11 @@ export default class Modal {
     this.escala = 1;
     this.posX = 0;
     this.posY = 0;
+    this.isDragging = false;
     this.aplicarTransform();
+    if (this.modalImg) {
+      this.modalImg.style.cursor = "zoom-in";
+    }
   }
 
   aplicarTransform() {
@@ -124,9 +131,16 @@ export default class Modal {
       this.escala -= zoomSpeed;
     }
 
-    if (this.escala < 1) this.escala = 1;
+    this.escala = Math.round(this.escala * 100) / 100;
+
+    if (this.escala <= 1) {
+      this.resetarImagem();
+      return;
+    }
+
     if (this.escala > 3) this.escala = 3;
 
+    this.modalImg.style.cursor = "grab";
     this.aplicarTransform();
   }
 
@@ -186,7 +200,11 @@ export default class Modal {
       const factor = currentDistance / this.touchStartDistance;
       this.escala = this.touchStartScale * factor;
 
-      if (this.escala < 1) this.escala = 1;
+      if (this.escala <= 1) {
+        this.escala = 1;
+        this.posX = 0;
+        this.posY = 0;
+      }
       if (this.escala > 3) this.escala = 3;
 
       this.aplicarTransform();
@@ -197,11 +215,17 @@ export default class Modal {
     if (e.touches.length === 0) {
       this.isDragging = false;
       this.touchStartDistance = 0;
+      if (this.escala <= 1) {
+        this.resetarImagem();
+      }
     } else if (e.touches.length === 1) {
       if (this.escala > 1) {
         this.isDragging = true;
         this.startX = e.touches[0].clientX - this.posX;
         this.startY = e.touches[0].clientY - this.posY;
+      } else {
+        this.isDragging = false;
+        this.resetarImagem();
       }
       this.touchStartDistance = 0;
     }
@@ -210,6 +234,9 @@ export default class Modal {
   touchCancelEvent() {
     this.isDragging = false;
     this.touchStartDistance = 0;
+    if (this.escala <= 1) {
+      this.resetarImagem();
+    }
   }
 
   addEventsBtnDetalhe() {

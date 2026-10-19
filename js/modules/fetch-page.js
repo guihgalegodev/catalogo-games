@@ -100,7 +100,6 @@ export default function initfetchPage() {
         ".content-fetch .details",
         "modal",
         "modal-img",
-        "modal-video",
         ".fechar",
         ".next",
         ".prev",
