@@ -17,12 +17,15 @@ export default class MenuMobile {
       e.currentTarget.setAttribute("aria-expanded", active);
       if (active) {
         e.currentTarget.setAttribute("aria-label", "Fechar Menu");
+        document.body.style.overflow = "hidden";
       } else {
         e.currentTarget.setAttribute("aria-label", "Abrir Menu");
+         document.body.style.overflow = "";
       }
     } else {
       this.btnMobile.setAttribute("aria-expanded", false);
       this.btnMobile.setAttribute("aria-label", "Abrir Menu");
+       document.body.style.overflow = "";
     }
   }
 
@@ -31,6 +34,7 @@ export default class MenuMobile {
       this.navMenu.classList.remove("active");
       this.btnMobile.setAttribute("aria-expanded", false);
       this.btnMobile.setAttribute("aria-label", "Abrir Menu");
+       document.body.style.overflow = "";
     });
   }
 
