@@ -42,6 +42,41 @@
     "assets/img/ps3/one-piece-foto-4.jpg"
   ],
 
+  "game7-ps3": [
+    "assets/img/ps3/mk9-foto-1.jpg",
+    "assets/img/ps3/mk9-foto-2.jpg",
+    "assets/img/ps3/mk9-foto-3.jpg",
+    "assets/img/ps3/mk9-foto-4.jpg"
+  ],
+
+  "game8-ps3": [
+    "assets/img/ps3/cdz-bravo-foto-1.jpg",
+    "assets/img/ps3/cdz-bravo-foto-2.jpg",
+    "assets/img/ps3/cdz-bravo-foto-3.jpg",
+    "assets/img/ps3/cdz-bravo-foto-4.jpg"
+  ],
+
+  "game9-ps3": [
+    "assets/img/ps3/nfs-ps-foto-1.jpg",
+    "assets/img/ps3/nfs-ps-foto-2.jpg",
+    "assets/img/ps3/nfs-ps-foto-3.jpg",
+    "assets/img/ps3/nfs-ps-foto-4.jpg"
+  ],
+
+  "game10-ps3": [
+    "assets/img/ps3/mk-vs-dc-foto-1.jpg",
+    "assets/img/ps3/mk-vs-dc-foto-2.jpg",
+    "assets/img/ps3/mk-vs-dc-foto-3.jpg",
+    "assets/img/ps3/mk-vs-dc-foto-4.jpg"
+  ],
+
+  "game11-ps3": [
+    "assets/img/ps3/ac2-foto-1.jpg",
+    "assets/img/ps3/ac2-foto-2.jpg",
+    "assets/img/ps3/ac2-foto-3.jpg",
+    "assets/img/ps3/ac2-foto-4.jpg"
+  ],
+
   "game1-ps2": [
     "assets/img/ps2/onimusha-2-foto-1.jpg",
     "assets/img/ps2/onimusha-2-foto-2.jpg",
