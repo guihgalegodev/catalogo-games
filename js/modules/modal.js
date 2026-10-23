@@ -30,7 +30,7 @@ export default class Modal {
     this.indexAtual = 0;
 
     this.modal.style.display = "flex";
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = "hidden";
     this.atualizarMidia();
   }
 
