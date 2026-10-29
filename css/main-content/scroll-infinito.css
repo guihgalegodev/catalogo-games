@@ -1,0 +1,57 @@
+.scroll {
+  opacity: 0;
+  margin-top: 50px;
+  margin-inline: auto;
+  max-width: 1020px;
+  padding: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  mask: linear-gradient(to right, transparent, red 2%, red 98%, transparent);
+}
+
+.scroll.ativo.down {
+  opacity: 1;
+  animation: showDown 0.7s forwards;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: scrollInfinito 10s linear infinite;
+}
+
+.scroll-item {
+  padding: 0px 10px;
+  height: 370px;
+  overflow-y: hidden;
+  border-radius: 5px;
+}
+
+.scroll-item img {
+  max-width: 200px;
+}
+
+@keyframes scrollInfinito {
+  to {
+    translate: calc(-50% - 5px);
+  }
+}
+
+@media (max-width: 1050px) {
+  .scroll {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 790px) {
+  .scroll {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 535px) {
+  .scroll {
+    max-width: 320px;
+  }
+}

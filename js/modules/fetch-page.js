@@ -4,6 +4,7 @@ import CheckWindowMobile from "./check-is-mobile.js";
 import Banner from "./banner.js";
 import DropdownMenu from "./dropdown-menu.js";
 import { links } from "./links.js";
+import ScrollInfinito from "./scroll-infinito.js";
 
 export default function initfetchPage() {
   let initialUrl = window.location.href;
@@ -15,7 +16,6 @@ export default function initfetchPage() {
 
   const linkDrop = new DropdownMenu("[data-dropdown]");
   linkDrop.init();
-  // console.log(linkActiveDropdown);
 
   fetchPage(initialUrl);
 
@@ -27,6 +27,7 @@ export default function initfetchPage() {
 
   let currentScrollAnimado = null;
   let currentBanner = null;
+  let currentScrollInfinito = null;
 
   async function fetchPage(url) {
     window.scrollTo({
@@ -88,8 +89,20 @@ export default function initfetchPage() {
       currentBanner.stopAutoSlide();
     }
 
+    // if (currentScrollInfinito) {
+
+    // }
+
     currentBanner = new Banner(".banner", ".controls li", url);
     currentBanner.init();
+
+    if (url.endsWith("index.html")) {
+      currentScrollInfinito = new ScrollInfinito(
+        ".scroll",
+        ".scroll-container",
+      );
+      currentScrollInfinito.init();
+    }
 
     if (!url.endsWith("index.html")) {
       const isMobile = 790;

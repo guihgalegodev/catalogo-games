@@ -3,6 +3,7 @@
 @import "./header/dropdown-menu.css";
 @import "./main-content/produtos.css";
 @import "./main-content/home.css";
+@import "./main-content/scroll-infinito.css";
 @import "./footer/footer.css";
 @import "./modal/modal.css";
 @import "./responsive/responsive.css";
