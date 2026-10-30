@@ -88,6 +88,31 @@
   animation: showRight 0.7s forwards;
 }
 
+.logos-market {
+  display: flex;
+  gap: 120px;
+  margin-bottom: 40px;
+}
+
+.logo-olx,
+.logo-sh {
+  background: rgba(15, 15, 15, 0.6);
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logos-market .logo-sh {
+  border: 1px solid #ea501f;
+  box-shadow: 3px 3px 10px #ea501f;
+}
+
+.logos-market .logo-olx {
+  border: 1px solid #7312d7;
+  box-shadow: 3px 3px 10px #7312d7;
+}
+
 .sh {
   color: #ea501f;
 }
@@ -164,5 +189,14 @@
   .banner {
     max-width: 450px;
     height: 200px;
+  }
+
+  .logos-market {
+    gap: 30px;
+  }
+
+  .logo-olx,
+  .logo-sh {
+    padding: 10px;
   }
 }

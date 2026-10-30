@@ -30,14 +30,14 @@ export default function initfetchPage() {
   let currentScrollInfinito = null;
 
   async function fetchPage(url) {
-    window.scrollTo({
-      top: 0,
-    });
-
     const pageResponse = await fetch(url);
     const pageText = await pageResponse.text();
     replaceContent(pageText);
     linkAtivo(url);
+
+    window.scrollTo({
+      top: 0,
+    });
 
     // Se já existir uma instância rodando, remove o eventos de scroll antigo
     if (currentScrollAnimado) {
