@@ -117,6 +117,65 @@
   color: #ea501f;
 }
 
+.faq {
+  opacity: 0;
+  padding: 40px 0px;
+}
+
+.faq.ativo.right {
+  opacity: 1;
+  animation: showRight 0.7s forwards;
+}
+
+details {
+  margin-bottom: 50px;
+  margin-left: 20px;
+  overflow: hidden;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  font-size: 1.5rem;
+  gap: 10px;
+}
+
+summary::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  background: var(--green);
+  transition: rotate 0.3s;
+}
+
+[open] summary::before {
+  rotate: 90deg;
+}
+
+.resp {
+  padding: 20px;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+@supports (height: calc-size(auto, size)) {
+  details::details-content {
+    height: 0;
+    transition:
+      height 0.3s,
+      content-visibility 0.3s allow-discrete;
+  }
+
+  details[open]::details-content {
+    height: calc-size(auto, size);
+  }
+}
+
 /* BANNER */
 
 .banner-wrapper {
@@ -179,6 +238,10 @@
     height: 5px;
     padding: 5px;
   }
+
+  .resp {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 500px) {
@@ -198,5 +261,13 @@
   .logo-olx,
   .logo-sh {
     padding: 10px;
+  }
+
+  summary {
+    font-size: 1.25rem;
+  }
+
+  .resp {
+    font-size: 0.875rem;
   }
 }
