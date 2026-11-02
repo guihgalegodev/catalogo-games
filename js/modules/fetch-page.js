@@ -45,6 +45,12 @@ export default function initfetchPage() {
     }
 
     //Cria a nova instância
+    const footerRedes = document.querySelector(".redes");
+    const footerP = document.querySelector(".copy");
+
+    footerRedes.classList.remove("ativo", "right");
+    footerP.classList.remove("ativo", "right");
+
     currentScrollAnimado = new ScrollAnimado("[data-anima]");
     currentScrollAnimado.init();
 

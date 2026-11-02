@@ -26,7 +26,6 @@
 }
 
 .intro.ativo.right {
-  opacity: 1;
   animation: showRight 0.7s forwards;
 }
 
@@ -42,7 +41,6 @@
 }
 
 .infos p.ativo.right {
-  opacity: 1;
   animation: showRight 0.7s forwards;
 }
 
@@ -79,12 +77,10 @@
 }
 
 .loja.ativo.down {
-  opacity: 1;
   animation: showDown 0.7s forwards;
 }
 
 .loja.ativo.right {
-  opacity: 1;
   animation: showRight 0.7s forwards;
 }
 
@@ -123,7 +119,6 @@
 }
 
 .faq.ativo.right {
-  opacity: 1;
   animation: showRight 0.7s forwards;
 }
 
@@ -189,7 +184,6 @@ summary::before {
 }
 
 .banner-wrapper.ativo.down {
-  opacity: 1;
   animation: showDown 0.7s forwards;
 }
 
