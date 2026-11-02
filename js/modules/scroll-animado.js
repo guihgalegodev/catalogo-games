@@ -9,7 +9,13 @@ export default class ScrollAnimado {
 
   getDistance() {
     this.distance = [...this.elements].map((element) => {
-      const offset = element.offsetTop;
+      let offset = element.offsetTop;
+      if (element.classList.contains("redes")) {
+        offset -= 310;
+      }
+      if (element.classList.contains("copy")) {
+        offset -= 380;
+      }
       return {
         element,
         offset: Math.floor(offset - this.metadeWindow),
