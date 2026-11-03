@@ -265,3 +265,9 @@ summary::before {
     font-size: 0.875rem;
   }
 }
+
+@media (max-width: 360px) {
+  .logos-market {
+    flex-direction: column;
+  }
+}

@@ -1,7 +1,7 @@
 :root {
   --cinza: #dadada;
   --branco: #e2e2e2;
-  --preto: #191918;
+  --preto: #000000;
   --green: #4bfa18;
 }
 
@@ -53,3 +53,29 @@ a {
   grid-template-rows: 1fr auto;
   min-height: 100vh;
 }
+/* 
+<footer>
+      <div class="footer-content">
+        <div class="redes" data-anima="right">
+          <div class="rede-box">
+            <a class="rede" href="https://www.google.com" target="_blank">
+              <img src="./assets/icons/instagram-logo.svg" alt="">
+            </a>
+            <span>Instagram</span>
+          </div>
+          <div class="rede-box">
+            <a class="rede" href="https://www.google.com" target="_blank">
+              <img src="./assets/icons/tiktok-logo.svg" alt="">
+            </a>
+            <span>Tiktok</span>
+          </div>
+          <div class="rede-box">
+            <a class="rede" href="https://www.google.com" target="_blank">
+              <img src="./assets/icons/youtube-logo.svg" alt="">
+            </a>
+            <span>Youtube</span>
+          </div>
+        </div>
+        <p class="copy" data-anima="right">@Todos os direitos reservados</p>
+      </div>
+    </footer> */
