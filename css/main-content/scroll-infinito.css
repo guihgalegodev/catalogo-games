@@ -55,3 +55,9 @@
     max-width: 320px;
   }
 }
+
+@media (max-width: 355px) {
+  .scroll {
+    max-width: 280px;
+  }
+}
