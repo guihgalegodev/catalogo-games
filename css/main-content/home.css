@@ -221,6 +221,17 @@ summary::before {
   background: var(--green);
 }
 
+@media (max-width: 1250px) {
+  .banner {
+    height: 370px;
+  }
+
+  .controls li {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 @media (max-width: 700px) {
   .banner {
     max-width: 600px;

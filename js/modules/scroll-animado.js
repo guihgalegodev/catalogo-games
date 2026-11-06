@@ -11,10 +11,10 @@ export default class ScrollAnimado {
     this.distance = [...this.elements].map((element) => {
       let offset = element.offsetTop;
       if (element.classList.contains("redes")) {
-        offset -= 310;
+        offset -= 330;
       }
       if (element.classList.contains("copy")) {
-        offset -= 380;
+        offset -= 400;
       }
       return {
         element,
